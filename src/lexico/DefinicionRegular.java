@@ -8,10 +8,14 @@ package lexico;
 public enum DefinicionRegular
 {
 	//Estos son los items del enumerador
-	ESPACIO ("\\s"),
-	IDE ("([a-zA-Z]|_)\\w*"),
-	DIG ("\\s\\d+\\s"),
-	OPAR ("\\+|-|\\*|/");
+	ERROR_IDE("\\d+([a-zA-Z]|_)+"),		//error para cuando se pone un numero al principio de un identificador. Ej: 1var, 4num.
+	ESPACIO ("\\s"),					//espacios de cualquier tipo, incluso tabuladores y saltos de linea
+	OPAR ("\\+|-|\\*|/"),				//operador aritmetico (+|-|/|*)
+	OPAS ("="),							//operador de asignacion (=)
+	DEL (";"),							//delimitador
+	IDE ("([a-zA-Z]|_)\\w*"),			//identificador
+	DIG ("\\d+"),						//digito (numero)
+	ERROR_UNEX (".+");					//simbolo inesperado e invalido
 	
 	/* 
 	 * Cabe resaltar que las propiedades que se ven a continuacion aplican

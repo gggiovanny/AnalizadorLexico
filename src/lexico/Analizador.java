@@ -15,10 +15,12 @@ public class Analizador
 	private Matcher m;	//permite mostrar resultados de busqueda de un patron en una cadena
 	public TablaTokens tablaSimbolos; 	//esto es basicamente un ArrayList de tokens con funciones extra (ver la clase)
 	public boolean patronEncontrado;	//indica si se tuvo exito al encontrar en su totalidad todos los tokens en la cadena de entrada 
+	public TablaTokens tablaErrores;	//tabla donde se guadan los tokens de error
 	
 	public Analizador()
 	{		
 		tablaSimbolos = new TablaTokens();
+		tablaErrores =  new TablaTokens();
 	}
 	
 	public void buscarPatrones(String cadena)
@@ -39,21 +41,33 @@ public class Analizador
 				{
 					//si hay coincidencia, se define un nuevo token del tipo de la definicion regular que coincidio con la cadena
 					token = new Token(defReg, m.group(), contadorLexema);
-					tablaSimbolos.add(token); //se agrega el token nuevo a la tabla simbolos, donde se le asigna su numero consecutivo automaticamente	
 					
-					cadena = cadena.substring(m.end()); //se corta de la cadena de entrada la seccion de la cadena que si coincidió
-					patronEncontrado = true;
+					if(token.defReg.name().contains("ERROR"))
+					{
+//						System.out.println("ERROR!!! Token: "+token.defReg.name()+" Lexema: ["+token.lexema+"]\n");
+						tablaErrores.add(token);	//se agrega el nuevo token como error
+						patronEncontrado = false;
+					}
+					else
+					{
+						tablaSimbolos.add(token); //se agrega el token nuevo a la tabla simbolos, donde se le asigna su numero consecutivo automaticamente	
+						patronEncontrado = true;						
+						cadena = cadena.substring(m.end()); //se corta de la cadena de entrada la seccion de la cadena que si coincidió
+					}
+						
 					break;
 				}
 			}
 			if(token.defReg != DefinicionRegular.ESPACIO) //No se toma en cuenta como lexema los espacios
 				contadorLexema++;
 			
+			
 			//si algun texto de la cadena no se corresponde con ningun token, se interumpe la busqueda y se arroja un error.
-			if(!patronEncontrado && !cadena.isEmpty()) 
-			{
-				System.out.println("ERROR!!! Simbolo inesperado en lexema "+contadorLexema+": ["+cadena+"]");
-			}
+			if(!patronEncontrado && !cadena.isEmpty())
+				System.out.println("ERROR!!! Simbolo inesperado en lexema "+contadorLexema+": ["+cadena+"]\n");
+			
+		
+				
 		}
 		
 		//si se termino de recorrer la cadena y por ello ésta quedo vacia, se encontraron todos los patrones
@@ -61,13 +75,16 @@ public class Analizador
 			patronEncontrado = true;
 	}
 	
-	
 	public static void main(String[] args)
 	{
 		Analizador analizador = new Analizador();
-		analizador.buscarPatrones("var1/var2-var3");
+		analizador.buscarPatrones("$no_se_puede = var1 + var2;");
+		
 		if(analizador.patronEncontrado)
 			analizador.tablaSimbolos.mostrar();
+		else
+			analizador.tablaErrores.mostrar();
+			
 		
 	}
 }
