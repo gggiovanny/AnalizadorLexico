@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class TablaTokens
 {
-	private ArrayList<Token> tokens;
+	public ArrayList<Token> tokens;
 		
 	public TablaTokens()
 	{

@@ -21,9 +21,12 @@ public class Analizador
 	{		
 		tablaSimbolos = new TablaTokens();
 		tablaErrores =  new TablaTokens();
+		patronEncontrado = false;
+		for(DefinicionRegular defReg : DefinicionRegular.values())
+			defReg.contador = 1;
 	}
 	
-	public void buscarPatrones(String cadena)
+	public void buscarPatrones(String cadena, boolean mostrarErrores)
 	{	
 		Token token = new Token(); 	//objeto que contendra la informacion de los tokens que se hallen
 									//no se usa individualmente, se anexa a tablaTokens
@@ -63,8 +66,8 @@ public class Analizador
 			
 			
 			//si algun texto de la cadena no se corresponde con ningun token, se interumpe la busqueda y se arroja un error.
-			if(!patronEncontrado && !cadena.isEmpty())
-				System.out.println("ERROR!!! Simbolo inesperado en lexema "+contadorLexema+": ["+cadena+"]\n");
+			if(mostrarErrores && !patronEncontrado && !cadena.isEmpty())
+				System.out.println("ERROR!!! Simbolo inesperado en lexema "+contadorLexema+": ["+cadena+"]");
 			
 		
 				
@@ -75,16 +78,53 @@ public class Analizador
 			patronEncontrado = true;
 	}
 	
+	private void ProbarMuchasCadenas()
+	{
+		String cadenas[] = {
+				"_decim = .5 + 0.14;",
+				"var1=var2*var3		;",
+				"var1=1var2/var3;",
+				"var1=var2-var3;",
+				"var1=var2+var3;",
+				"_num = 5 + var3;",
+				"sepa_rado = 21.3 / 324.2     ;",
+				"_algo = op * 50;",
+				"no-se-puede = 5 + 1;",
+				"si_se_puede = var2 / var545 ;",
+				"$no_se_puede = var1 + var2;",
+				"00no = 3 + 1;",
+				"si00 = 3 + 1;",
+				"variable = 0num - num0;",
+				"suma = -5 + 6",
+				"didier se la come"
+				};
+		
+		for(String cadena : cadenas)
+		{
+			Analizador analizador = new Analizador();
+			analizador.buscarPatrones(cadena, false);
+			if(analizador.patronEncontrado)
+				System.out.println("O - ACEPTADO: "+cadena);
+			else
+				System.out.println("X - RECHAZADO: TOKEN: "+analizador.tablaErrores.tokens.get(0).toString() + " Cadena: "+cadena);
+		}
+
+	}
+	
 	public static void main(String[] args)
 	{
 		Analizador analizador = new Analizador();
-		analizador.buscarPatrones("$no_se_puede = var1 + var2;");
+		
+		analizador.buscarPatrones("suma_3 = num1 + 4.5;", true);
 		
 		if(analizador.patronEncontrado)
 			analizador.tablaSimbolos.mostrar();
 		else
 			analizador.tablaErrores.mostrar();
-			
+		
+		System.out.println("================ Probando varias cadenas a la vez ================");
+		analizador.ProbarMuchasCadenas();
+		
 		
 	}
 }
