@@ -2,30 +2,25 @@ package lexico;
 
 import java.util.ArrayList;
 
+/*
+ * RESUMEN:
+ * Esta clase basicamente contiene una lista con todos los tokens,
+ * pero existe por la necesidad de que al agregar un token del mismo tipo
+ * se les asigne un valor consecutivo.
+ */
 public class TablaTokens
 {
-	private ArrayList<Token> items;
-	
-	private int contadorIDE;
-	private int contadorDIG;
-	private int contadorOPAR;
-	
-	private int [] contadores;
-	
-	
+	private ArrayList<Token> tokens;
+		
 	public TablaTokens()
 	{
-		items = new ArrayList<Token>();
-		contadorIDE = 0;
-		contadorDIG = 0;
-		contadorOPAR = 0;
-		
-		contadores = new int[DefinicionRegular.values().length];
+		tokens = new ArrayList<Token>();
 	}
 	
+	//Metodo para imprimir en consola el contenido de la lista
 	public void mostrar()
 	{
-		for(Token token : items)
+		for(Token token : tokens)
 		{
 			System.out.println("Token: "+token.toString());
 			System.out.println("Lexema: [ "+token.lexema+" ]");
@@ -33,6 +28,9 @@ public class TablaTokens
 		}
 	}
 	
+	//Este metodo es la razon de existir de esta clase, pues 
+	//le da la funcion lleva un numero consecutivo en tokens
+	//del mismo tipo.
 	public void add(Token token)
 	{
 		if(token.defReg == DefinicionRegular.ESPACIO)
@@ -47,11 +45,11 @@ public class TablaTokens
 			}
 		}		
 		
-		items.add(token);
+		tokens.add(token);
 	}
 	
 	public Token get(int i)
 	{
-		return items.get(i);
+		return tokens.get(i);
 	}
 }
