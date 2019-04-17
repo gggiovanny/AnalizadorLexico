@@ -85,7 +85,7 @@ public class Analizador
 				"var1=var2*var3		;",
 				"var1=1var2/var3;",
 				"var1=var2-var3;",
-				"var1=var2+var3;",
+				"var1 = var2 +var3;",
 				"_num = 5 + var3;",
 				"sepa_rado = 21.3 / 324.2     ;",
 				"_algo = op * 50;",
