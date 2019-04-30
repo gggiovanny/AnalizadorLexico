@@ -80,6 +80,8 @@ public class Analizador
 	
 	private void ProbarMuchasCadenas()
 	{
+		
+		
 		String cadenas[] = {
 				"_decim = .5 + 0.14;",
 				"var1=var2*var3		;",
@@ -111,20 +113,24 @@ public class Analizador
 
 	}
 	
-	public static void main(String[] args)
-	{
-		Analizador analizador = new Analizador();
+	private void PruebaGeneral()
+	{		
+		buscarPatrones("suma_3 = num1 + 4.5;", true);
 		
-		analizador.buscarPatrones("suma_3 = num1 + 4.5;", true);
-		
-		if(analizador.patronEncontrado)
-			analizador.tablaSimbolos.mostrar();
+		if(patronEncontrado)
+			tablaSimbolos.mostrar();
 		else
-			analizador.tablaErrores.mostrar();
+			tablaErrores.mostrar();
 		
 		System.out.println("================ Probando varias cadenas a la vez ================");
-		analizador.ProbarMuchasCadenas();
+		ProbarMuchasCadenas();
+	}
+	
+	public static void main(String[] args)
+	{
 		
+		Analizador analizador = new Analizador();
+		analizador.PruebaGeneral();
 		
 	}
 }
