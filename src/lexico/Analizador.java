@@ -78,7 +78,7 @@ public class Analizador
 				this.cadenaError = "ERROR!!! Simbolo inesperado en lexema "+contadorLexema+": ["+cadena+"]";
 			}
 				
-				
+				System.out.println("ERROR!!! Simbolo inesperado en lexema "+contadorLexema+": ["+cadena+"]");
 			
 		
 				
@@ -139,4 +139,5 @@ public class Analizador
 		
 	}
 	*/
+	}	
 }
