@@ -17,6 +17,7 @@ public class Analizador
 	public boolean patronEncontrado;	//indica si se tuvo exito al encontrar en su totalidad todos los tokens en la cadena de entrada 
 	public TablaTokens tablaErrores;	//tabla donde se guadan los tokens de error
 	
+	
 	public Analizador()
 	{		
 		tablaSimbolos = new TablaTokens();
@@ -76,61 +77,5 @@ public class Analizador
 		//si se termino de recorrer la cadena y por ello ésta quedo vacia, se encontraron todos los patrones
 		if(cadena.isEmpty())
 			patronEncontrado = true;
-	}
-	
-	private void ProbarMuchasCadenas()
-	{
-		
-		
-		String cadenas[] = {
-				"_decim = .5 + 0.14;",
-				"var1=var2*var3		;",
-				"var1=1var2/var3;",
-				"var1=var2-var3;",
-				"var1 = var2 +var3;",
-				"_num = 5 + var3;",
-				"sepa_rado = 21.3 / 324.2     ;",
-				"_algo = op * 50;",
-				"no-se-puede = 5 + 1;",
-				"si_se_puede = var2 / var545 ;",
-				"$no_se_puede = var1 + var2;",
-				"00no = 3 + 1;",
-				"si00 = 3 + 1;",
-				"variable = 0num - num0;",
-				"suma = -5 + 6",
-				"didier se la come"
-				};
-		
-		for(String cadena : cadenas)
-		{
-			Analizador analizador = new Analizador();
-			analizador.buscarPatrones(cadena, false);
-			if(analizador.patronEncontrado)
-				System.out.println("O - ACEPTADO: "+cadena);
-			else
-				System.out.println("X - RECHAZADO: TOKEN: "+analizador.tablaErrores.tokens.get(0).toString() + " Cadena: "+cadena);
-		}
-
-	}
-	
-	private void PruebaGeneral()
-	{		
-		buscarPatrones("suma_3 = num1 + 4.5;", true);
-		
-		if(patronEncontrado)
-			tablaSimbolos.mostrar();
-		else
-			tablaErrores.mostrar();
-		
-		System.out.println("================ Probando varias cadenas a la vez ================");
-		ProbarMuchasCadenas();
-	}
-	
-	public static void main(String[] args)
-	{
-		
-		Analizador analizador = new Analizador();
-		analizador.PruebaGeneral();
-		
-	}
+	}	
 }
