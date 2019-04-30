@@ -5,17 +5,11 @@ import javax.swing.JOptionPane;
 
 public class Prueba 
 {
-	Analizador analizador;
-	
-	public Prueba()
+	private void PruebaGeneral()
 	{
-		analizador = new Analizador();
-	}
+		ArrayList<Analizador> lista;
+		lista = new ArrayList<Analizador>();
 
-	private void ProbarMuchasCadenas()
-	{
-		ArrayList<Analizador> lista = new ArrayList<Analizador>();
-		
 		String cadenas[] = {
 				"_decim = .5 + 0.14;",
 				"var1=var2*var3		;",
@@ -33,41 +27,36 @@ public class Prueba
 				"variable = 0num - num0;",
 				"suma = -5 + 6",
 				"didier se la come"
-				};
-		
+		};
+
+		Analizador analisis;
+		int c = 1;
 		for(String cadena : cadenas)
 		{
-			Analizador analisis = new Analizador();
-			analizador.buscarPatrones(cadena, false);
-			if(analizador.patronEncontrado)
-				System.out.println("O - ACEPTADO: "+cadena);
-			else
-				System.out.println("X - RECHAZADO: TOKEN: "+analizador.tablaErrores.tokens.get(0).toString() + " Cadena: "+cadena);
+			analisis = new Analizador();
+			analisis.buscarPatrones(cadena, false);
 			lista.add(analisis);
+			if(analisis.patronEncontrado) {
+				System.out.println(c+"\t- O - ACEPTADO: "+cadena);
+			}
+			else {
+				System.out.println(c+"\t- X - RECHAZADO: TOKEN: "+analisis.tablaErrores.tokens.get(0).toString() + " Cadena: "+cadena);
+			}
+			c++;
 		}
-		
+
 		String input = JOptionPane.showInputDialog("Elija una cadena para ver sus detalles:");
-		int opcion = Integer.parseInt(input);
+		int opcion = Integer.parseInt(input) - 1;
 		Analizador analisisMostrar = lista.get(opcion);
-		
-		if(analisisMostrar.patronEncontrado)
+
+		System.out.println("Cadena ingresada: "+analisisMostrar.cadenaAnalizar);
+
+		if(analisisMostrar.patronEncontrado) {
 			analisisMostrar.tablaSimbolos.mostrar();
-		else
+		}
+		else {
 			analisisMostrar.tablaErrores.mostrar();
-	}
-	
-	private void PruebaGeneral()
-	{	
-		/*
-		analizador.buscarPatrones("suma_3 = num1 + 4.5;", true);
-		
-		if(analizador.patronEncontrado)
-			analizador.tablaSimbolos.mostrar();
-		else
-			analizador.tablaErrores.mostrar();
-		*/
-		System.out.println("================ Probando varias cadenas a la vez ================");
-		ProbarMuchasCadenas();
+		}
 	}
 	
 	public static void main(String[] args)

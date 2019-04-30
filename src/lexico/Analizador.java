@@ -16,12 +16,15 @@ public class Analizador {
 	public boolean patronEncontrado; // indica si se tuvo exito al encontrar en su totalidad todos los tokens en la
 										// cadena de entrada
 	public TablaTokens tablaErrores; // tabla donde se guadan los tokens de error
-	public String cadenaError = "";
+	public String cadenaError;
+	public String cadenaAnalizar;
 
 	public Analizador() {
 		tablaSimbolos = new TablaTokens();
 		tablaErrores = new TablaTokens();
 		patronEncontrado = false;
+		cadenaError = "";
+		cadenaAnalizar = "";
 		for (DefinicionRegular defReg : DefinicionRegular.values())
 			defReg.contador = 1;
 	}
@@ -31,6 +34,7 @@ public class Analizador {
 	}
 
 	public void buscarPatrones(String cadena, boolean mostrarErrores) {
+		this.cadenaAnalizar = cadena;
 		Token token = new Token(); // objeto que contendra la informacion de los tokens que se hallen
 									// no se usa individualmente, se anexa a tablaTokens
 		int contadorLexema = 0;
@@ -84,23 +88,5 @@ public class Analizador {
 		// encontraron todos los patrones
 		if (cadena.isEmpty())
 			patronEncontrado = true;
-	}
-
-	private void ProbarMuchasCadenas() {
-		String cadenas[] = { "_decim = .5 + 0.14;", "var1=var2*var3		;", "var1=1var2/var3;", "var1=var2-var3;",
-				"var1 = var2 +var3;", "_num = 5 + var3;", "sepa_rado = 21.3 / 324.2     ;", "_algo = op * 50;",
-				"no-se-puede = 5 + 1;", "si_se_puede = var2 / var545 ;", "$no_se_puede = var1 + var2;", "00no = 3 + 1;",
-				"si00 = 3 + 1;", "variable = 0num - num0;", "suma = -5 + 6", "didier se la come" };
-
-		for (String cadena : cadenas) {
-			Analizador analizador = new Analizador();
-			analizador.buscarPatrones(cadena, false);
-			if (analizador.patronEncontrado)
-				System.out.println("O - ACEPTADO: " + cadena);
-			else
-				System.out.println("X - RECHAZADO: TOKEN: " + analizador.tablaErrores.tokens.get(0).toString()
-						+ " Cadena: " + cadena);
-		}
-
 	}
 }
