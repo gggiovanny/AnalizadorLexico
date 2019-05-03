@@ -7,7 +7,7 @@ El programa permitirá ingresar varias cadenas a la vez, y como salida genera un
 
 #### Informacion adicional
 + [Como hacer los tokens de error](https://drive.google.com/open?id=1ZMFsDPFu0uCkqSe7WkhR5SwxjhEPyi5l)
-+ [Como hacer los tokens normales (por si no fuiste a la clase)](https://drive.google.com/open?id=1zpympdkJSz5FdZ3Kb_IHILJ2rYJkRrCI)
++ [Como hacer los tokens normales](https://drive.google.com/open?id=1zpympdkJSz5FdZ3Kb_IHILJ2rYJkRrCI)
 + [Info de las librerias regex y matcher co ejemplos muy comprensibles](http://tutorials.jenkov.com/java-regex/matcher.html)
 + [Documentacion oficial de Pattern (info acerca del uso de las regex)](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html)
 + Apunte que hice en clase de como debe quedar la salida:
