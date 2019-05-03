@@ -14,7 +14,7 @@ public enum DefinicionRegular
 	OPAS ("="),							//operador de asignacion (=)
 	DEL (";"),							//delimitador
 	IDE ("([a-zA-Z]|_)\\w*"),			//identificador
-	DIG ("\\d+|\\d*\\.\\d+"),			//digito normal o decimal
+	DIG ("(\\d*\\.\\d+)|\\d+"),			//digito normal o decimal
 	ERROR_UNEX (".+");					//simbolo inesperado e invalido
 	
 	/* 

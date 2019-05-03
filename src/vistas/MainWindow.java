@@ -15,6 +15,8 @@ import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JTextPane;
 import javax.swing.JScrollPane;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -36,7 +38,7 @@ public class MainWindow extends JFrame {
 					MainWindow frame = new MainWindow();
 					frame.setResizable(false);
 					frame.setVisible(true);
-					
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -55,30 +57,60 @@ public class MainWindow extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lblNewLabel = new JLabel("C\u00F3digo fuente a evaluar");
 		lblNewLabel.setBounds(10, 11, 141, 14);
 		contentPane.add(lblNewLabel);
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 144, 454, 256);
 		contentPane.add(scrollPane);
-		
-		txtEntrada = new JTextField();
-		txtEntrada.setBounds(10, 36, 454, 30);
-		contentPane.add(txtEntrada);
-		txtEntrada.setColumns(10);
-		
+
 		JTextPane txtSalida = new JTextPane();
 		txtSalida.setEditable(false);
 		scrollPane.setViewportView(txtSalida);
 		txtSalida.setForeground(Color.GREEN);
 		txtSalida.setBackground(Color.BLACK);
-		
+
+		txtEntrada = new JTextField();
+		txtEntrada.setBounds(10, 36, 454, 30);
+		contentPane.add(txtEntrada);
+		txtEntrada.setColumns(10);
+		txtEntrada.addKeyListener(new KeyListener() {
+
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				int key = e.getKeyCode();
+
+				if( e.isControlDown() && key == KeyEvent.VK_ENTER )
+					txtSalida.setText(Analizar(txtEntrada.getText()));
+
+				if( e.isControlDown() && key == KeyEvent.VK_C )
+				{
+					//Limpiar textos
+					txtEntrada.setText("");
+					txtSalida.setText("");
+				}
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+
+			}
+		});
+
+
+
 		JLabel lblSalida = new JLabel("Resultado del analizador lexico");
 		lblSalida.setBounds(10, 119, 189, 14);
 		contentPane.add(lblSalida);
-		
+
 		JButton btnLimpiar = new JButton("Limpiar");
 		btnLimpiar.addMouseListener(new MouseAdapter() {
 			@Override
@@ -90,26 +122,33 @@ public class MainWindow extends JFrame {
 		});
 		btnLimpiar.setBounds(375, 77, 89, 31);
 		contentPane.add(btnLimpiar);
-		
+
 		JButton btnAnalizar = new JButton("Analizar");
 		btnAnalizar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Analizador analizador = new Analizador();
-				String codigoAnalizar = txtEntrada.getText();
-				
-				analizador.buscarPatrones(codigoAnalizar, true);
-				
-				if(analizador.patronEncontrado) {
-					txtSalida.setText(analizador.tablaSimbolos.obtenerLista());
-				} else {
-					txtSalida.setText(analizador.getError());
-					//txtSalida.setText(analizador.tablaErrores.obtenerLista());
-				}
-				
+				txtSalida.setText(Analizar(txtEntrada.getText()));
 			}
 		});
 		btnAnalizar.setBounds(276, 77, 89, 31);
 		contentPane.add(btnAnalizar);
+
+
+	}
+
+	private String Analizar(String codigoAnalizar)
+	{
+		String salida = "";
+		Analizador analizador = new Analizador();
+
+		analizador.buscarPatrones(codigoAnalizar, true);
+
+		if(analizador.patronEncontrado) {
+			salida = analizador.tablaSimbolos.obtenerLista();
+		} else {
+			salida = analizador.getError();
+			//txtSalida.setText(analizador.tablaErrores.obtenerLista());
+		}
+		return  salida;
 	}
 }
