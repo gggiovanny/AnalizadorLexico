@@ -11,10 +11,12 @@ import java.util.ArrayList;
 public class TablaTokens
 {
 	public ArrayList<Token> tokens;
+	private int contador;
 		
 	public TablaTokens()
 	{
 		tokens = new ArrayList<Token>();
+		contador = 0;
 	}
 	
 	//Metodo para imprimir en consola el contenido de la lista
@@ -41,6 +43,21 @@ public class TablaTokens
 		}
 		
 		return cadenaFinal;
+	}
+
+	public Object[] obtenerSiguienteFila()
+	{
+		Object[] fila;
+		try
+		{
+			fila = new Object[] {tokens.get(contador).toString(), tokens.get(contador).lexema};
+		}
+		catch (Exception e)
+		{
+			fila = null;
+		}
+		contador++;
+		return fila;
 	}
 	
 	//Este metodo es la razon de existir de esta clase, pues 
