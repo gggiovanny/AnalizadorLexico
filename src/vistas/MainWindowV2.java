@@ -4,16 +4,10 @@ import lexico.Analizador;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Vector;
+import java.awt.event.*;
 
 public class MainWindowV2 {
-    private JTextField txtCadenaIngreso;
+    public JTextField txtCadenaIngreso;
     private JButton btnAnalizar;
     private JLabel lblCadenaIngreso;
     private JPanel pnlPrincipal;
@@ -22,6 +16,7 @@ public class MainWindowV2 {
     private JTable tablaTokens;
     private JScrollPane scrollErrores;
     private JTable tablaErrores;
+    private JButton leyendaButton;
     DefaultTableModel mdlTokens;
     DefaultTableModel mdlErrores;
     final String[] columnNames = {"Lexema", "Token"};
@@ -62,6 +57,28 @@ public class MainWindowV2 {
                 }
             }
         });
+        leyendaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EventQueue.invokeLater(new Runnable() {
+                    public void run() {
+                        try {
+                            LeyendaTokens leyendaTokens = new LeyendaTokens();
+                            JFrame frameLeyenda = new JFrame();
+                            frameLeyenda.setContentPane(leyendaTokens.pnlLeyenda);
+                            frameLeyenda.setTitle("Leyenda");
+                            frameLeyenda.setBounds(580, 100, 490, 275);
+                            frameLeyenda.setVisible(true);
+                            frameLeyenda.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }
+        });
+
     }
 
     private void Analizar(String codigoAnalizar)
@@ -110,11 +127,12 @@ public class MainWindowV2 {
                     UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
                     //Crear frame
                     JFrame frame = new JFrame("Analizador Léxico");
-                    frame.setContentPane(new MainWindowV2().pnlPrincipal);
+                    MainWindowV2 app = new MainWindowV2();
+                    frame.setContentPane(app.pnlPrincipal);
                     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                     frame.setBounds(100, 100, 490, 450);
                     frame.setVisible(true);
-
+                    app.txtCadenaIngreso.requestFocus();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
