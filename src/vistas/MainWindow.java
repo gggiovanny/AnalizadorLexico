@@ -146,7 +146,7 @@ public class MainWindow extends JFrame {
 		if(analizador.patronEncontrado) {
 			salida = analizador.tablaSimbolos.obtenerLista();
 		} else {
-			salida = analizador.getError();
+			salida = analizador.tablaErrores.obtenerLista();
 			//txtSalida.setText(analizador.tablaErrores.obtenerLista());
 		}
 		return  salida;
