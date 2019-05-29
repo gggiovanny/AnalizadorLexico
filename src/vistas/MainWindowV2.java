@@ -7,9 +7,8 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class MainWindowV2 {
-    public JTextField txtCadenaIngreso;
+    public JTextArea txtCadenaIngreso;
     private JButton btnAnalizar;
-    private JLabel lblCadenaIngreso;
     private JPanel pnlPrincipal;
     private JButton btnLimpiar;
     private JScrollPane scrollTokens;
@@ -17,6 +16,9 @@ public class MainWindowV2 {
     private JScrollPane scrollErrores;
     private JTable tablaErrores;
     private JButton leyendaButton;
+    private JPanel pnlTablas;
+    private JPanel pnlBotones;
+    private JPanel pnlTexto;
     DefaultTableModel mdlTokens;
     DefaultTableModel mdlErrores;
     final String[] columnNames = {"Lexema", "Token"};

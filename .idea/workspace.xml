@@ -6,7 +6,15 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00b211cd-35ee-415e-abeb-2e88d8472af8" name="Default Changelist" comment="" />
+    <list default="true" id="00b211cd-35ee-415e-abeb-2e88d8472af8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/com_jgoodies_jgoodies_common_1_8_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/com_jgoodies_jgoodies_forms_1_9_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/com_jgoodies_jgoodies_looks_2_7_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalizadorLexico.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AnalizadorLexico.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vistas/MainWindowV2.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/vistas/MainWindowV2.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vistas/MainWindowV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vistas/MainWindowV2.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,51 +30,25 @@
     <favorites_list name="Compilador" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vistas/MainWindow.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="54" selection-start-line="54" selection-end-line="55" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3161#3302#0" expanded="true" />
-                <element signature="e#3301#3302#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/vistas/MainWindowV2.form">
           <provider selected="true" editor-type-id="ui-designer" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vistas/MainWindowV2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+            <state relative-caret-position="1926">
+              <caret line="128" column="99" lean-forward="true" selection-start-line="128" selection-start-column="99" selection-end-line="128" selection-end-column="99" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1219#1220#0" expanded="true" />
-                <element signature="e#1287#1288#0" expanded="true" />
-                <element signature="e#1438#1439#0" expanded="true" />
-                <element signature="e#1483#1484#0" expanded="true" />
-                <element signature="e#1537#2028#0" expanded="true" />
-                <element signature="e#2027#2028#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vistas/LeyendaTokens.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-17">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1049#1050#0" expanded="true" />
+                <element signature="e#1117#1118#0" expanded="true" />
+                <element signature="e#1268#1269#0" expanded="true" />
+                <element signature="e#1313#1314#0" expanded="true" />
+                <element signature="e#1367#1858#0" expanded="true" />
+                <element signature="e#1857#1858#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -88,6 +70,11 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -101,8 +88,8 @@
         <option value="$PROJECT_DIR$/src/vistas/MainWindow.java" />
         <option value="$PROJECT_DIR$/src/vistas/LeyendaTokens.java" />
         <option value="$PROJECT_DIR$/src/vistas/LeyendaTokens.form" />
-        <option value="$PROJECT_DIR$/src/vistas/MainWindowV2.form" />
         <option value="$PROJECT_DIR$/src/vistas/MainWindowV2.java" />
+        <option value="$PROJECT_DIR$/src/vistas/MainWindowV2.form" />
       </list>
     </option>
   </component>
@@ -113,10 +100,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="953" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -126,6 +112,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -144,29 +131,26 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="vistas" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Compilador" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AnalizadorLexico" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="vistas" type="462c0819:PsiDirectoryNode" />
-              <item name="LeyendaTokens" type="e9f4de52:FormNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="GenerateAntBuildDialog.generateSingleFile" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="AnalizadorLexico" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="178" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="last_opened_file_path" value="$APPLICATION_HOME_DIR$/lib" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.21149425" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -212,8 +196,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.MainWindowV2" />
       <item itemvalue="Application.MainWindows old" />
+      <item itemvalue="Application.MainWindowV2" />
       <item itemvalue="Application.Prueba" />
     </list>
   </component>
@@ -284,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1557518598681</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Varias correcciones y Leyenda agregada">
+      <created>1557523443341</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1557523443341</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView">
@@ -298,23 +289,24 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49945828" visible="true" weight="0.20255864" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49945828" visible="true" weight="0.21108742" />
       <window_info id="Structure" order="1" sideWeight="0.5005417" side_tool="true" weight="0.14925373" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" sideWeight="0.5005417" side_tool="true" weight="0.14925373" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49520257" weight="0.18309858" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" weight="0.3997833" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4936034" visible="true" weight="0.18309858" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4989339" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49840087" weight="0.32936078" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49733475" weight="0.32936078" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4989339" weight="0.32936078" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50159913" side_tool="true" visible="true" weight="0.18309858" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49413645" weight="0.32827735" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5063966" side_tool="true" visible="true" weight="0.18309858" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49307036" weight="0.32827735" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -355,6 +347,46 @@
         <option value="3" />
         <option value="1" />
       </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
@@ -433,19 +465,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vistas/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
+        <state relative-caret-position="648">
           <caret line="54" selection-start-line="54" selection-end-line="55" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3161#3302#0" expanded="true" />
-            <element signature="e#3301#3302#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vistas/LeyendaTokens.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
+        <state relative-caret-position="18">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -453,24 +483,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vistas/MainWindowV2.form">
-      <provider selected="true" editor-type-id="ui-designer" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/net/URLClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="381" column="18" selection-start-line="381" selection-start-column="18" selection-end-line="381" selection-end-column="18" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vistas/MainWindowV2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+        <state relative-caret-position="1926">
+          <caret line="128" column="99" lean-forward="true" selection-start-line="128" selection-start-column="99" selection-end-line="128" selection-end-column="99" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1219#1220#0" expanded="true" />
-            <element signature="e#1287#1288#0" expanded="true" />
-            <element signature="e#1438#1439#0" expanded="true" />
-            <element signature="e#1483#1484#0" expanded="true" />
-            <element signature="e#1537#2028#0" expanded="true" />
-            <element signature="e#2027#2028#0" expanded="true" />
+            <element signature="e#1049#1050#0" expanded="true" />
+            <element signature="e#1117#1118#0" expanded="true" />
+            <element signature="e#1268#1269#0" expanded="true" />
+            <element signature="e#1313#1314#0" expanded="true" />
+            <element signature="e#1367#1858#0" expanded="true" />
+            <element signature="e#1857#1858#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vistas/MainWindowV2.form">
+      <provider selected="true" editor-type-id="ui-designer" />
     </entry>
   </component>
   <component name="masterDetails">
@@ -483,7 +520,6 @@
             <option name="proportions">
               <list>
                 <option value="0.21149425" />
-                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -524,7 +560,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Compilador</last-edited>
+          <last-edited>AnalizadorLexico</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

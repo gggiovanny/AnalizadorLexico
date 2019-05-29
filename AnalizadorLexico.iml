@@ -8,5 +8,8 @@
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="inheritedJdk" />
+    <orderEntry type="library" name="com.jgoodies:jgoodies-common:1.8.1" level="project" />
+    <orderEntry type="library" name="com.jgoodies:jgoodies-looks:2.7.0" level="project" />
+    <orderEntry type="library" name="com.jgoodies:jgoodies-forms:1.9.0" level="project" />
   </component>
 </module>
