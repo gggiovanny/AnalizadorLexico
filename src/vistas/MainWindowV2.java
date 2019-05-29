@@ -90,24 +90,20 @@ public class MainWindowV2 {
         Analizador analizador = new Analizador();
         analizador.buscarPatrones(codigoAnalizar, true);
 
-        if(analizador.patronEncontrado)
+        Object[] filaToken = analizador.tablaSimbolos.obtenerSiguienteFila();
+        while (filaToken != null)
         {
-            Object[] fila = analizador.tablaSimbolos.obtenerSiguienteFila();
-            while (fila != null)
-            {
-                mdlTokens.addRow(fila);
-                fila = analizador.tablaSimbolos.obtenerSiguienteFila();
-            }
+            mdlTokens.addRow(filaToken);
+            filaToken = analizador.tablaSimbolos.obtenerSiguienteFila();
         }
-        else
+
+        Object[] filaError = analizador.tablaErrores.obtenerSiguienteFila();
+        while (filaError != null)
         {
-            Object[] fila = analizador.tablaErrores.obtenerSiguienteFila();
-            while (fila != null)
-            {
-                mdlErrores.addRow(fila);
-                fila = analizador.tablaErrores.obtenerSiguienteFila();
-            }
+            mdlErrores.addRow(filaError);
+            filaError = analizador.tablaErrores.obtenerSiguienteFila();
         }
+
     }
 
     private void Limpiar(boolean LimpiarTexto)

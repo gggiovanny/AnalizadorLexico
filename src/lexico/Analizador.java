@@ -33,6 +33,19 @@ public class Analizador {
 		return this.cadenaError;
 	}
 
+	private boolean existeEnTabla(Token token, TablaTokens tabla)
+	{
+		for (Token tokenTabla : tabla.tokens)
+		{
+			if(token.defReg == tokenTabla.defReg)
+			{
+				if(token.lexema.equals(tokenTabla.lexema))
+					return true;
+			}
+		}
+		return false;
+	}
+
 	public void buscarPatrones(String cadena, boolean mostrarErrores) {
 		this.cadenaAnalizar = cadena;
 		Token token = new Token(); // objeto que contendra la informacion de los tokens que se hallen
@@ -44,26 +57,34 @@ public class Analizador {
 		{
 			patronEncontrado = false;
 //			System.out.println(cadena);//se descomenta para visualizar como se va cortando la cadena
-			for (DefinicionRegular defReg : DefinicionRegular.values()) // se recorre un arreglo generado el enum que
-																		// contiene las definiciones regulares
+			for (DefinicionRegular defReg : DefinicionRegular.values()) // se recorre un arreglo generado por el enum
+																		// que contiene las definiciones regulares
 			{
 				p = Pattern.compile(defReg.regex()); // se designa una expresion regular para buscar coincidencias, que
 														// esta guardada en el enum DefinicionRegular
-				m = p.matcher(cadena); // se inicializa el objeto de busqueda de coincidencias con la expresion regular
+				m = p.matcher(cadena); 	// se inicializa el objeto de busqueda de coincidencias con la expresion regular
 										// anterior
 				if (m.lookingAt()) // se buscan coincidencias unicamente al principio de la cadena de entrada
 				{
 					// si hay coincidencia, se define un nuevo token del tipo de la definicion
 					// regular que coincidio con la cadena
-					token = new Token(defReg, m.group(), contadorLexema);
+					String lexema = m.group();
+					token = new Token(defReg, lexema, contadorLexema);
 
 					if (token.defReg.name().contains("ERROR")) {
-//						System.out.println("ERROR!!! Token: "+token.defReg.name()+" Lexema: ["+token.lexema+"]\n");
-						tablaErrores.add(token); // se agrega el nuevo token como error
+						if(!existeEnTabla(token, tablaErrores))
+						{
+							tablaErrores.add(token); // se agrega el nuevo token como error
+						}
 						patronEncontrado = false;
 					} else {
-						tablaSimbolos.add(token); // se agrega el token nuevo a la tabla simbolos, donde se le asigna su
-													// numero consecutivo automaticamente
+						if(!existeEnTabla(token, tablaSimbolos))
+						{
+							// se agrega el token nuevo a la tabla simbolos, donde se le asigna su
+							// numero consecutivo automaticamente
+							tablaSimbolos.add(token);
+						}
+
 						patronEncontrado = true;
 						cadena = cadena.substring(m.end()); // se corta de la cadena de entrada la seccion de la cadena
 															// que si coincidió
