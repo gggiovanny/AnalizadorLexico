@@ -31,18 +31,8 @@ public class MainWindowV2 {
         mdlErrores = new DefaultTableModel(columnNames, 0);
         tablaErrores.setModel(mdlErrores);
 
-        btnAnalizar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Analizar(txtCadenaIngreso.getText());
-            }
-        });
-        btnLimpiar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Limpiar(true);
-            }
-        });
+        btnAnalizar.addActionListener(e -> Analizar(txtCadenaIngreso.getText()));
+        btnLimpiar.addActionListener(e -> Limpiar(true));
         txtCadenaIngreso.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
@@ -59,33 +49,27 @@ public class MainWindowV2 {
                 }
             }
         });
-        leyendaButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                EventQueue.invokeLater(new Runnable() {
-                    public void run() {
-                        try {
-                            LeyendaTokens leyendaTokens = new LeyendaTokens();
-                            JFrame frameLeyenda = new JFrame();
-                            frameLeyenda.setContentPane(leyendaTokens.pnlLeyenda);
-                            frameLeyenda.setTitle("Leyenda");
-                            frameLeyenda.setBounds(580, 100, 490, 275);
-                            frameLeyenda.setVisible(true);
-                            frameLeyenda.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        leyendaButton.addActionListener(e -> EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    LeyendaTokens leyendaTokens = new LeyendaTokens();
+                    JFrame frameLeyenda = new JFrame();
+                    frameLeyenda.setContentPane(leyendaTokens.pnlLeyenda);
+                    frameLeyenda.setTitle("Leyenda");
+                    frameLeyenda.setBounds(580, 100, 490, 275);
+                    frameLeyenda.setVisible(true);
+                    frameLeyenda.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-        });
+        }));
 
     }
 
     private void Analizar(String codigoAnalizar)
     {
-
         Limpiar(false);
         Analizador analizador = new Analizador();
         analizador.buscarPatrones(codigoAnalizar, true);
@@ -103,7 +87,6 @@ public class MainWindowV2 {
             mdlErrores.addRow(filaError);
             filaError = analizador.tablaErrores.obtenerSiguienteFila();
         }
-
     }
 
     private void Limpiar(boolean LimpiarTexto)

@@ -52,7 +52,7 @@ public class Analizador {
 									// no se usa individualmente, se anexa a tablaTokens
 		int contadorLexema = 0;
 		patronEncontrado = true;
-		while (patronEncontrado) // la busqueda de patrones se detiene cuando se llega a una cadena que no se
+		while (cadena.length() > 0) // la busqueda de patrones se detiene cuando se llega a una cadena que no se
 									// puede "tokenizar"
 		{
 			patronEncontrado = false;
@@ -75,8 +75,11 @@ public class Analizador {
 						if(!existeEnTabla(token, tablaErrores))
 						{
 							tablaErrores.add(token); // se agrega el nuevo token como error
+							tablaSimbolos.add(token);
 						}
 						patronEncontrado = false;
+						cadena = cadena.substring(m.end()); // se corta de la cadena de entrada la seccion de la cadena
+						// que si coincidió
 					} else {
 						if(!existeEnTabla(token, tablaSimbolos))
 						{

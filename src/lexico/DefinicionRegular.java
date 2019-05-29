@@ -15,7 +15,7 @@ public enum DefinicionRegular
 	DEL (";"),							//delimitador
 	IDE ("([a-zA-Z]|_)\\w*"),			//identificador
 	DIG ("(\\d*\\.\\d+)|\\d+"),			//digito normal o decimal
-	ERROR_UNEX (".+");					//simbolo inesperado e invalido
+	ERROR_UNEX (".");					//simbolo inesperado e invalido
 	
 	/* 
 	 * Cabe resaltar que las propiedades que se ven a continuacion aplican
