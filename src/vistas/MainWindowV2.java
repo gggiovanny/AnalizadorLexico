@@ -108,10 +108,12 @@ public class MainWindowV2 {
                     UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
                     //Crear frame
                     JFrame frame = new JFrame("Analizador Léxico");
+                    ImageIcon icon = new ImageIcon("img//analizador_lexico_icon_2.png");
                     MainWindowV2 app = new MainWindowV2();
                     frame.setContentPane(app.pnlPrincipal);
                     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                     frame.setBounds(100, 100, 490, 450);
+                    frame.setIconImage(icon.getImage());
                     frame.setVisible(true);
                     app.txtCadenaIngreso.requestFocus();
                 } catch (Exception e) {
