@@ -50,7 +50,7 @@ public class TablaTokens
 		Object[] fila;
 		try
 		{
-			fila = new Object[] {tokens.get(contador).toString(), tokens.get(contador).lexema};
+			fila = new Object[] {tokens.get(contador).toString() + tokens.get(contador).info, tokens.get(contador).lexema};
 		}
 		catch (Exception e)
 		{

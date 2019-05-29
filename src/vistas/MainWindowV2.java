@@ -1,10 +1,13 @@
 package vistas;
 
 import lexico.Analizador;
+import lexico.DefinicionRegular;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class MainWindowV2 {
     public JTextArea txtCadenaIngreso;
@@ -19,9 +22,13 @@ public class MainWindowV2 {
     private JPanel pnlTablas;
     private JPanel pnlBotones;
     private JPanel pnlTexto;
+    private JPanel pnlGLC;
+    private JButton btnTest;
+    private JScrollPane scrollGLC;
     DefaultTableModel mdlTokens;
     DefaultTableModel mdlErrores;
-    final String[] columnNames = {"Lexema", "Token"};
+    final String[] columnNames = {"Token", "Lexema"};
+    JFrame frmMain;
 
     public MainWindowV2() {
 
@@ -59,17 +66,26 @@ public class MainWindowV2 {
                     frameLeyenda.setBounds(580, 100, 490, 275);
                     frameLeyenda.setVisible(true);
                     frameLeyenda.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }));
-
+    }
+    private void agregarLabels(String texto)
+    {
+        JLabel lbl = new JLabel();
+        lbl.setText(texto + " ");
+        pnlGLC.add(lbl);
+        pnlPrincipal.revalidate();
+        pnlPrincipal.repaint();
     }
 
     private void Analizar(String codigoAnalizar)
     {
+        if(codigoAnalizar.isEmpty())
+            return;
+
         Limpiar(false);
         Analizador analizador = new Analizador();
         analizador.buscarPatrones(codigoAnalizar, true);
@@ -87,6 +103,10 @@ public class MainWindowV2 {
             mdlErrores.addRow(filaError);
             filaError = analizador.tablaErrores.obtenerSiguienteFila();
         }
+
+        
+
+
     }
 
     private void Limpiar(boolean LimpiarTexto)
@@ -96,6 +116,7 @@ public class MainWindowV2 {
         mdlTokens.setRowCount(0);
         mdlErrores.setRowCount(0);
     }
+
 
     public static void main(String[] args)
     {
@@ -107,19 +128,23 @@ public class MainWindowV2 {
                     JDialog.setDefaultLookAndFeelDecorated(true);
                     UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
                     //Crear frame
-                    JFrame frame = new JFrame("Analizador Léxico");
-                    ImageIcon icon = new ImageIcon("img//analizador_lexico_icon_2.png");
                     MainWindowV2 app = new MainWindowV2();
-                    frame.setContentPane(app.pnlPrincipal);
-                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    frame.setBounds(100, 100, 490, 450);
-                    frame.setIconImage(icon.getImage());
-                    frame.setVisible(true);
+                    app.frmMain = new JFrame("Analizador Léxico");
+                    ImageIcon icon = new ImageIcon("img//analizador_lexico_icon_2.png");
+                    app.frmMain.setContentPane(app.pnlPrincipal);
+                    app.frmMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    app.frmMain.setBounds(100, 100, 700, 450);
+                    app.frmMain.setIconImage(icon.getImage());
+                    app.frmMain.setVisible(true);
                     app.txtCadenaIngreso.requestFocus();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         });
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 }

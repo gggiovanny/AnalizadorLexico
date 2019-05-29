@@ -1,5 +1,6 @@
 package lexico;
 
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -46,16 +47,97 @@ public class Analizador {
 		return false;
 	}
 
+	private boolean esOPERADOR(Token token)
+	{
+
+		if(token.defReg == DefinicionRegular.IDE || token.defReg == DefinicionRegular.DIG)
+		{
+			return true;
+		}
+		return false;
+	}
+
+	private void analisisSintactico(ArrayList<Token> ENTRADA)
+	{
+		int c  = 0;
+		DefinicionRegular valorEsperado;
+
+
+		if(ENTRADA.size() < c + 1)
+			return;
+		valorEsperado = DefinicionRegular.IDE;
+		if(ENTRADA.get(c).defReg != valorEsperado)
+		{
+			ENTRADA.get(c).info =  " (ESPERADO " + valorEsperado.toString() + ")";
+			tablaErrores.add(ENTRADA.get(c));
+		}
+		c++;
+
+		if(ENTRADA.size() < c + 1)
+			return;
+		valorEsperado = DefinicionRegular.OPAS;
+		if(ENTRADA.get(c).defReg != valorEsperado)
+		{
+			ENTRADA.get(c).info =  " (ESPERADO " + valorEsperado.toString() + ")";
+			tablaErrores.add(ENTRADA.get(c));
+		}
+		c++;
+
+		if(ENTRADA.size() < c + 1)
+			return;
+		valorEsperado = DefinicionRegular.OPAS;
+		if(!esOPERADOR(ENTRADA.get(c)))
+		{
+			ENTRADA.get(c).info =  " (ESPERADO IDE|DIG )";
+			tablaErrores.add(ENTRADA.get(c));
+		}
+		c++;
+
+		if(ENTRADA.size() < c + 1)
+			return;
+		valorEsperado = DefinicionRegular.OPAR;
+		if(ENTRADA.get(c).defReg != valorEsperado)
+		{
+			ENTRADA.get(c).info =  " (ESPERADO " + valorEsperado.toString() + ")";
+			tablaErrores.add(ENTRADA.get(c));
+		}
+		c++;
+
+		if(ENTRADA.size() < c + 1)
+			return;
+		valorEsperado = DefinicionRegular.OPAS;
+		if(!esOPERADOR(ENTRADA.get(c)))
+		{
+			ENTRADA.get(c).info =  " (ESPERADO IDE|DIG )";
+			tablaErrores.add(ENTRADA.get(c));
+		}
+		c++;
+
+		if(ENTRADA.size() < c + 1)
+			return;
+		valorEsperado = DefinicionRegular.DEL;
+		if(ENTRADA.get(c).defReg != valorEsperado)
+		{
+			ENTRADA.get(c).info =  " (ESPERADO " + valorEsperado.toString() + ")";
+			tablaErrores.add(ENTRADA.get(c));
+		}
+		c++;
+
+	}
+
 	public void buscarPatrones(String cadena, boolean mostrarErrores) {
 		this.cadenaAnalizar = cadena;
+
+		ArrayList<Token> lsTokens = new ArrayList<Token>();
+
 		Token token = new Token(); // objeto que contendra la informacion de los tokens que se hallen
 									// no se usa individualmente, se anexa a tablaTokens
 		int contadorLexema = 0;
-		patronEncontrado = true;
-		while (cadena.length() > 0) // la busqueda de patrones se detiene cuando se llega a una cadena que no se
+		boolean saltoLinea = false;
+		while (!saltoLinea && cadena.length() > 0) // la busqueda de patrones se detiene cuando se llega a una cadena que no se
 									// puede "tokenizar"
 		{
-			patronEncontrado = false;
+			saltoLinea = false;
 //			System.out.println(cadena);//se descomenta para visualizar como se va cortando la cadena
 			for (DefinicionRegular defReg : DefinicionRegular.values()) // se recorre un arreglo generado por el enum
 																		// que contiene las definiciones regulares
@@ -71,13 +153,15 @@ public class Analizador {
 					String lexema = m.group();
 					token = new Token(defReg, lexema, contadorLexema);
 
+					if (token.defReg != DefinicionRegular.ESPACIO)
+						lsTokens.add(token); // se agrega indistintamente a la lista para el analis sintactico
+
 					if (token.defReg.name().contains("ERROR")) {
 						if(!existeEnTabla(token, tablaErrores))
 						{
 							tablaErrores.add(token); // se agrega el nuevo token como error
 							tablaSimbolos.add(token);
 						}
-						patronEncontrado = false;
 						cadena = cadena.substring(m.end()); // se corta de la cadena de entrada la seccion de la cadena
 						// que si coincidió
 					} else {
@@ -88,7 +172,6 @@ public class Analizador {
 							tablaSimbolos.add(token);
 						}
 
-						patronEncontrado = true;
 						cadena = cadena.substring(m.end()); // se corta de la cadena de entrada la seccion de la cadena
 															// que si coincidió
 					}
@@ -99,18 +182,18 @@ public class Analizador {
 			if (token.defReg != DefinicionRegular.ESPACIO) // No se toma en cuenta como lexema los espacios
 				contadorLexema++;
 
-			// si algun texto de la cadena no se corresponde con ningun token, se interumpe
-			// la busqueda y se arroja un error.
-			if (mostrarErrores && !patronEncontrado && !cadena.isEmpty()) {
-				// System.out.println("ERROR!!! Simbolo inesperado en lexema "+contadorLexema+":
-				// ["+cadena+"]");
-				this.cadenaError = "ERROR!!! Simbolo inesperado en lexema " + contadorLexema + ": [" + cadena + "]";
-			}
+			if(cadena.length() > 0)
+				if(cadena.charAt(0) == '\n' )
+					saltoLinea = true;
+
 		}
 
-		// si se termino de recorrer la cadena y por ello ésta quedo vacia, se
-		// encontraron todos los patrones
-		if (cadena.isEmpty())
-			patronEncontrado = true;
+		analisisSintactico(lsTokens);
+		lsTokens = new ArrayList<Token>();
+
+		if (!cadena.isEmpty()) {
+			buscarPatrones(cadena, false);
+		}
+
 	}
 }
