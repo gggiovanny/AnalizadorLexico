@@ -69,7 +69,8 @@ public class Analizador {
 		if(ENTRADA.get(c).defReg != valorEsperado)
 		{
 			ENTRADA.get(c).info =  " (ESPERADO " + valorEsperado.toString() + ")";
-			tablaErrores.add(ENTRADA.get(c));
+			if(!ENTRADA.get(c).defReg.name().contains("ERROR"))
+				tablaErrores.add(ENTRADA.get(c));
 		}
 		c++;
 
@@ -79,7 +80,8 @@ public class Analizador {
 		if(ENTRADA.get(c).defReg != valorEsperado)
 		{
 			ENTRADA.get(c).info =  " (ESPERADO " + valorEsperado.toString() + ")";
-			tablaErrores.add(ENTRADA.get(c));
+			if(!ENTRADA.get(c).defReg.name().contains("ERROR"))
+				tablaErrores.add(ENTRADA.get(c));
 		}
 		c++;
 
@@ -89,7 +91,8 @@ public class Analizador {
 		if(!esOPERADOR(ENTRADA.get(c)))
 		{
 			ENTRADA.get(c).info =  " (ESPERADO IDE|DIG )";
-			tablaErrores.add(ENTRADA.get(c));
+			if(!ENTRADA.get(c).defReg.name().contains("ERROR"))
+				tablaErrores.add(ENTRADA.get(c));
 		}
 		c++;
 
@@ -99,7 +102,8 @@ public class Analizador {
 		if(ENTRADA.get(c).defReg != valorEsperado)
 		{
 			ENTRADA.get(c).info =  " (ESPERADO " + valorEsperado.toString() + ")";
-			tablaErrores.add(ENTRADA.get(c));
+			if(!ENTRADA.get(c).defReg.name().contains("ERROR"))
+				tablaErrores.add(ENTRADA.get(c));
 		}
 		c++;
 
@@ -109,7 +113,8 @@ public class Analizador {
 		if(!esOPERADOR(ENTRADA.get(c)))
 		{
 			ENTRADA.get(c).info =  " (ESPERADO IDE|DIG )";
-			tablaErrores.add(ENTRADA.get(c));
+			if(!ENTRADA.get(c).defReg.name().contains("ERROR"))
+				tablaErrores.add(ENTRADA.get(c));
 		}
 		c++;
 
@@ -119,7 +124,8 @@ public class Analizador {
 		if(ENTRADA.get(c).defReg != valorEsperado)
 		{
 			ENTRADA.get(c).info =  " (ESPERADO " + valorEsperado.toString() + ")";
-			tablaErrores.add(ENTRADA.get(c));
+			if(!ENTRADA.get(c).defReg.name().contains("ERROR"))
+				tablaErrores.add(ENTRADA.get(c));
 		}
 		c++;
 
