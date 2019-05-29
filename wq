@@ -1,0 +1,191 @@
+[33mcommit 71ed4ed858623d88a92501c0bc6928cbc6084010[m[33m ([m[1;36mHEAD -> [m[1;32mglc[m[33m, [m[1;31morigin/glc[m[33m)[m
+Author: gggiovanny <giovanny.gonzalez.19@gmail.com>
+Date:   Wed May 29 00:02:23 2019 -0500
+
+    El programa ahora cumple con todo lo siguiente:
+    Que deje ingresar varias líneas
+    Que cuando halla errores, muestre los tokens correctos antes y después del error
+    Los errores deben estar también en la tabla de tokens normales
+    No se deben de repetir los tokens iguales en las tablas (x = x/2;)
+
+[33mcommit 67cfeb8a44d7406351f79f51b2ed8a801c8f3906[m
+Author: gggiovanny <giovanny.gonzalez.19@gmail.com>
+Date:   Tue May 28 23:37:03 2019 -0500
+
+    Ya no se repiten los tokens iguales en las tablas
+
+[33mcommit 102621819774a8b058e04ebf1de36bb22becf6d0[m
+Author: gggiovanny <giovanny.gonzalez.19@gmail.com>
+Date:   Tue May 28 22:34:43 2019 -0500
+
+    Corregido el aspecto visual y alineamiento de la pantalla principal
+
+[33mcommit ba69673a4fc7576fcbf8cc355c7e060a11f3e0c1[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: gggiovanny <giovanny.gonzalez.19@gmail.com>
+Date:   Fri May 10 16:24:03 2019 -0500
+
+    Varias correcciones y Leyenda agregada
+
+[33mcommit f4adfdea481a354e8a3669c57c20b16a3a2ef7ba[m
+Author: gggiovanny <giovanny.gonzalez.19@gmail.com>
+Date:   Fri May 10 15:03:18 2019 -0500
+
+    Varias correcciones y Leyenda agregada
+
+[33mcommit 5bbbf9703b8bdfc856d58f797d2fb909341b24c0[m
+Author: gggiovanny <giovanny.gonzalez.19@gmail.com>
+Date:   Fri May 10 14:59:17 2019 -0500
+
+    Varias correcciones y Leyenda agregada
+
+[33mcommit f75dc42613ccc4c9a4bed07fd81b52d31ffa0360[m
+Author: gggiovanny <giovanny.gonzalez.19@gmail.com>
+Date:   Fri May 10 12:25:24 2019 -0500
+
+    Agregada nueva ventana principal hecha con IntelliJ que ya muestra dos tablas, una para tokens y otra para errores
+
+[33mcommit 38a169a9030a6ef877d8e7871d71464816de481e[m
+Author: gggiovanny <giovanny.gonzalez.19@gmail.com>
+Date:   Thu May 9 23:55:48 2019 -0500
+
+    Agregada nuevo main con IntelliJ
+
+[33mcommit ef03880a669bf37a384839b4ea8f96fecdcc8a79[m
+Author: gggiovanny <giovanny.gonzalez.19@gmail.com>
+Date:   Thu May 9 23:52:47 2019 -0500
+
+    Agregada nuevo main con IntelliJ
+
+[33mcommit 545b41668a13a4ed94d896297bb23926eae26c4e[m
+Merge: 62ca70c c64b292
+Author: gggiovanny <giovanny.gonzalez.19@hotmail.com>
+Date:   Thu May 9 23:52:15 2019 -0500
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 62ca70ce04549182a415967575b9f1e349112c20[m
+Author: gggiovanny <giovanny.gonzalez.19@gmail.com>
+Date:   Thu May 9 23:50:16 2019 -0500
+
+    Agregada nuevo main con IntelliJ
+
+[33mcommit c64b29236c084ed7935dc70c4c8f4d4dae51c6bb[m[33m ([m[1;33mtag: 1.2[m[33m)[m
+Author: Giovanny González Baltazar <giovanny.gonzalez.19@gmail.com>
+Date:   Fri May 3 11:59:08 2019 -0500
+
+    Update README.md
+
+[33mcommit ba2a59296343136515d9bdeebe6342202c3b6e9a[m
+Author: Giovanny González Baltazar <giovanny.gonzalez.19@gmail.com>
+Date:   Fri May 3 11:58:47 2019 -0500
+
+    Update README.md
+
+[33mcommit 670d9c999692bab054fc4bc6213d8569dca34c39[m
+Author: Giovanny González Baltazar <giovanny.gonzalez.19@gmail.com>
+Date:   Fri May 3 11:57:29 2019 -0500
+
+    Update README.md
+
+[33mcommit 1b726613d149dd54eba3d783e97c4acf9c80c3c0[m
+Author: gggiovanny <giovanny.gonzalez.19@gmail.com>
+Date:   Fri May 3 09:56:01 2019 -0500
+
+    Corregido error que hacia que los numeros decimales sean reconocidos como dos DIG separados por punto en vez de solo un DIG
+
+[33mcommit 5b2aa8a8c73286c6c9da51e2bb1a3ef240503125[m
+Author: gggiovanny <giovanny.gonzalez.19@gmail.com>
+Date:   Tue Apr 30 18:29:37 2019 -0500
+
+    Agregada clase para pruebas
+
+[33mcommit bfb9401f28674c733e4b84a5141f37902f7be41c[m
+Author: gggiovanny <giovanny.gonzalez.19@gmail.com>
+Date:   Tue Apr 30 12:39:36 2019 -0500
+
+    Borrada una linea duplicada que mostraba un error inexistente
+
+[33mcommit 31ccd3b1beaace30334092ea9bcc09c8f6622914[m
+Merge: f88f486 6414c47
+Author: Erick Lugo <Ericklugoj@gmail.com>
+Date:   Tue Apr 30 12:26:26 2019 -0500
+
+    reparado
+
+[33mcommit 6414c47c42677240f5774ae3d2046b28d749bb03[m
+Author: gggiovanny <giovanny.gonzalez.19@gmail.com>
+Date:   Tue Apr 30 11:59:37 2019 -0500
+
+    Ultimo cambio de gio
+
+[33mcommit f88f48627a89a2197eaab5ef1d2098be247af626[m
+Author: Erick Lugo <Ericklugoj@gmail.com>
+Date:   Tue Apr 30 11:29:21 2019 -0500
+
+    primer commit erick
+
+[33mcommit aedc9a7f7cd7bb14bd7bd8ef6998b005293ada47[m
+Author: gggiovanny <giovanny.gonzalez.19@gmail.com>
+Date:   Tue Apr 30 10:45:08 2019 -0500
+
+    Agregado metodo PruebaGeneral
+
+[33mcommit 9497980f7eb0ffc8a4460844e852618caf6f3ce0[m
+Author: gggiovanny <giovanny.gonzalez.19@gmail.com>
+Date:   Wed Apr 17 00:15:18 2019 -0500
+
+    Prueba de git en eclipse
+
+[33mcommit 466a25fbc9492d6200d02a9bfac729d2321fbe34[m
+Author: gggiovanny <giovanny.gonzalez.19@gmail.com>
+Date:   Tue Apr 16 20:56:36 2019 -0500
+
+    Version final de consola
+
+[33mcommit 71dc17bd9d6bae25653a9a3db1d23b8c72c72e3b[m
+Author: gggiovanny <giovanny.gonzalez.19@gmail.com>
+Date:   Tue Apr 16 20:21:18 2019 -0500
+
+    Agregados las definiciones regulares faltantes
+
+[33mcommit be1196ba92745b18d072cfcb4d223b380636020b[m
+Author: gggiovanny <giovanny.gonzalez.19@gmail.com>
+Date:   Tue Apr 16 19:18:16 2019 -0500
+
+    Mejorado el codigo y agregados comentarios en todas las clases
+
+[33mcommit 1ee37638232d0fdd26ae146f4f47b134f0abea14[m
+Author: gggiovanny <giovanny.gonzalez.19@gmail.com>
+Date:   Tue Apr 16 17:31:18 2019 -0500
+
+    Corregida imagen del readme
+
+[33mcommit 2f31996bdb83addad45ce2df046ae5d011dba345[m
+Author: gggiovanny <giovanny.gonzalez.19@gmail.com>
+Date:   Tue Apr 16 17:24:44 2019 -0500
+
+    Agregadas intrucciones para lugo en el readme
+
+[33mcommit fe1b2a0441178bc98ad66b93c92b13f9104d5d45[m
+Author: gggiovanny <giovanny.gonzalez.19@gmail.com>
+Date:   Tue Apr 16 16:58:29 2019 -0500
+
+    Agregada imagen
+
+[33mcommit 2fa2da4b79a590669803494971d34d378e9b7599[m
+Author: gggiovanny <giovanny.gonzalez.19@gmail.com>
+Date:   Tue Apr 16 16:46:38 2019 -0500
+
+    Agregado readme
+
+[33mcommit 533b17332bef98da66b3dccbd94292644cb96722[m
+Author: gggiovanny <giovanny.gonzalez.19@gmail.com>
+Date:   Tue Apr 16 16:40:18 2019 -0500
+
+    Primer commit
+
+[33mcommit 3d62697debbcf20020068cbb612c0eeb17bed362[m
+Author: Giovanny González Baltazar <giovanny.gonzalez.19@gmail.com>
+Date:   Tue Apr 16 16:27:51 2019 -0500
+
+    Initial commit
