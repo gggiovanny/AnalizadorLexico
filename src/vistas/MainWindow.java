@@ -1,20 +1,10 @@
 package vistas;
 
-import lexico.Analizador;
+import analizador.lexico.Analizador;
 
-import java.awt.EventQueue;
-
-import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.UIManager;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.Color;
-import javax.swing.JTextPane;
-import javax.swing.JScrollPane;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
@@ -106,8 +96,7 @@ public class MainWindow extends JFrame {
 		});
 
 
-
-		JLabel lblSalida = new JLabel("Resultado del analizador lexico");
+		JLabel lblSalida = new JLabel("Resultado del analizador analizador.lexico");
 		lblSalida.setBounds(10, 119, 189, 14);
 		contentPane.add(lblSalida);
 

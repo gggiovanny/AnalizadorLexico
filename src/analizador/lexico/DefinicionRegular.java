@@ -1,4 +1,4 @@
-package lexico;
+package analizador.lexico;
 /*
  * RESUMEN:
  * Este enumerador permite identificar cada tipo de token segun su definicion regular,
@@ -13,7 +13,11 @@ public enum DefinicionRegular
 	ESPACIO ("\\s"),					//espacios de cualquier tipo, incluso tabuladores y saltos de linea
 	OPAR ("\\+|-|\\*|/"),				//operador aritmetico (+|-|/|*)
 	OPAS ("="),							//operador de asignacion (=)
+    SEP(","),
 	DEL (";"),							//delimitador
+    TDATO("int|float|double|char|boolean|String"),
+    TEXT("\"[^\"]*\""),
+
 	IDE ("([a-zA-Z]|_)\\w*"),			//identificador
 	DIG ("(\\d*\\.\\d+)|\\d+"),			//digito normal o decimal
 	ERROR_UNEX (".\\w*");					//simbolo inesperado e invalido

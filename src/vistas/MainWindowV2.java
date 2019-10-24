@@ -1,13 +1,12 @@
 package vistas;
 
-import lexico.Analizador;
-import lexico.DefinicionRegular;
+import analizador.lexico.Analizador;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.*;
-import java.util.ArrayList;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class MainWindowV2 {
     public JTextArea txtCadenaIngreso;

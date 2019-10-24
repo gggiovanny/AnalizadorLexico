@@ -1,4 +1,4 @@
-package lexico;
+package analizador.lexico;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -50,11 +50,7 @@ public class Analizador {
 	private boolean esOPERADOR(Token token)
 	{
 
-		if(token.defReg == DefinicionRegular.IDE || token.defReg == DefinicionRegular.DIG)
-		{
-			return true;
-		}
-		return false;
+		return token.defReg == DefinicionRegular.IDE || token.defReg == DefinicionRegular.DIG;
 	}
 
 	private void analisisSintactico(ArrayList<Token> ENTRADA)
@@ -194,7 +190,7 @@ public class Analizador {
 
 		}
 
-		analisisSintactico(lsTokens);
+		//analisisSintactico(lsTokens);
 		lsTokens = new ArrayList<Token>();
 
 		if (!cadena.isEmpty()) {
