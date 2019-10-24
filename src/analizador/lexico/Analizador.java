@@ -130,19 +130,19 @@ public class Analizador {
 	public void buscarPatrones(String cadena) {
 		this.cadenaAnalizar = cadena;
 
-		ArrayList<Token> lsTokens = new ArrayList<Token>();
-
 		Token token = new Token(); // objeto que contendra la informacion de los tokens que se hallen
 									// no se usa individualmente, se anexa a tablaTokens
 		int contadorLexema = 0;
-		boolean saltoLinea = false;
-		while (!saltoLinea && cadena.length() > 0) // la busqueda de patrones se detiene cuando se llega a una cadena que no se
+		int contadorColumna = 0;
+		int contadorLinea = 0;
+
+		//Ciclo de recorrido de la cadena
+		while (cadena.length() > 0) // la busqueda de patrones se detiene cuando se llega a una cadena que no se
 									// puede "tokenizar"
 		{
-			saltoLinea = false;
-//			System.out.println(cadena);//se descomenta para visualizar como se va cortando la cadena
-			for (DefinicionRegular defReg : DefinicionRegular.values()) // se recorre un arreglo generado por el enum
-																		// que contiene las definiciones regulares
+			// Ciclo de matching: recorre todas las definiciones regulares y verifica en cual coincide la cadena de entrada.
+			// Se recorre un arreglo generado por el enum que contiene las definiciones regulares
+			for (DefinicionRegular defReg : DefinicionRegular.values())
 			{
 				p = Pattern.compile(defReg.regex()); // se designa una expresion regular para buscar coincidencias, que
 														// esta guardada en el enum DefinicionRegular
@@ -156,16 +156,15 @@ public class Analizador {
 					token = new Token(defReg, lexema, contadorLexema);
 
 					if (token.defReg != DefinicionRegular.ESPACIO)
-						lsTokens.add(token); // se agrega indistintamente a la lista para el analis sintactico
+						//TODO("Aqui se va a llamar al metodo del analisis sintactico")
 
+						// En la siguiente seccion se agrega el token a su tabla correspondiente.
 					if (token.defReg.name().contains("ERROR")) {
 						if(!existeEnTabla(token, tablaErrores))
 						{
 							tablaErrores.add(token); // se agrega el nuevo token como error
 							tablaSimbolos.add(token);
 						}
-						cadena = cadena.substring(m.end()); // se corta de la cadena de entrada la seccion de la cadena
-						// que si coincidió
 					} else {
 						if(!existeEnTabla(token, tablaSimbolos))
 						{
@@ -173,23 +172,28 @@ public class Analizador {
 							// numero consecutivo automaticamente
 							tablaSimbolos.add(token);
 						}
-
-						cadena = cadena.substring(m.end()); // se corta de la cadena de entrada la seccion de la cadena
-															// que si coincidió
 					}
-
-					break;
+					cadena = cadena.substring(m.end());    // se corta de la cadena de entrada la seccion de la cadena
+					// que si coincidió
+					//contadorColumna += m.end(); // Antes de salir del ciclo, contabilizar la columna
+					break; // Sale del FOR. Si ya se encontró el token, salirse del ciclo de matching
 				}
 			}
 			if (token.defReg != DefinicionRegular.ESPACIO) // No se toma en cuenta como lexema los espacios
 				contadorLexema++;
 
 			if(cadena.length() > 0)
-				if(cadena.charAt(0) == '\n' )
-					saltoLinea = true;
+				if (cadena.charAt(0) == '\n') {
+					contadorLinea++;
+					contadorColumna = 0;
+				}
+
 
 		}
+		if (!cadena.isEmpty()) {
+			buscarPatrones(cadena);
+		}
 
-		//analisisSintactico(lsTokens);
+		String xd = "";
 	}
 }

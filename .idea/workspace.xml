@@ -9,9 +9,6 @@
     <list default="true" id="00b211cd-35ee-415e-abeb-2e88d8472af8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/analizador/lexico/Analizador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/lexico/Analizador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/analizador/lexico/Prueba.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/lexico/Prueba.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vistas/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vistas/MainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vistas/MainWindowV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vistas/MainWindowV2.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -216,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571943852774</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Limpieza: Removidos parametros no utilizados">
+      <created>1571948874059</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1571948874060</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView">
@@ -277,10 +281,27 @@
     <MESSAGE value="Agreado icono" />
     <MESSAGE value="Corregido error donde cuando se encontraba un simbolo desconocido y estaba junto a una palabra, no reconocia la palabra a la que pertenecia" />
     <MESSAGE value="Primer intento de implementacion NO FUNCIONAL TODAVIA de un arbol de Gramatica Libre de Contexto (GLC) para la etapa de analisis sintactico" />
-    <option name="LAST_COMMIT_MESSAGE" value="Primer intento de implementacion NO FUNCIONAL TODAVIA de un arbol de Gramatica Libre de Contexto (GLC) para la etapa de analisis sintactico" />
+    <MESSAGE value="Limpieza: Removidos parametros no utilizados" />
+    <option name="LAST_COMMIT_MESSAGE" value="Limpieza: Removidos parametros no utilizados" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/analizador/lexico/Analizador.java</url>
+          <line>143</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="p" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
