@@ -87,7 +87,7 @@ public class MainWindowV2 {
 
         Limpiar(false);
         Analizador analizador = new Analizador();
-        analizador.buscarPatrones(codigoAnalizar, true);
+        analizador.buscarPatrones(codigoAnalizar);
 
         Object[] filaToken = analizador.tablaSimbolos.obtenerSiguienteFila();
         while (filaToken != null)

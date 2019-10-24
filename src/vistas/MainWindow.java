@@ -130,7 +130,7 @@ public class MainWindow extends JFrame {
 		String salida = "";
 		Analizador analizador = new Analizador();
 
-		analizador.buscarPatrones(codigoAnalizar, true);
+		analizador.buscarPatrones(codigoAnalizar);
 
 		if(analizador.patronEncontrado) {
 			salida = analizador.tablaSimbolos.obtenerLista();

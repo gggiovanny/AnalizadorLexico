@@ -127,7 +127,7 @@ public class Analizador {
 
 	}
 
-	public void buscarPatrones(String cadena, boolean mostrarErrores) {
+	public void buscarPatrones(String cadena) {
 		this.cadenaAnalizar = cadena;
 
 		ArrayList<Token> lsTokens = new ArrayList<Token>();
@@ -191,11 +191,5 @@ public class Analizador {
 		}
 
 		//analisisSintactico(lsTokens);
-		lsTokens = new ArrayList<Token>();
-
-		if (!cadena.isEmpty()) {
-			buscarPatrones(cadena, false);
-		}
-
 	}
 }

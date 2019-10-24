@@ -34,7 +34,7 @@ public class Prueba
 		for(String cadena : cadenas)
 		{
 			analisis = new Analizador();
-			analisis.buscarPatrones(cadena, false);
+			analisis.buscarPatrones(cadena);
 			lista.add(analisis);
 			if(analisis.patronEncontrado) {
 				System.out.println(c+"\t- O - ACEPTADO: "+cadena);
