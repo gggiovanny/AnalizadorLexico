@@ -89,7 +89,12 @@ public class Analizador {
 
         }
 
-        analizadorSintactico.analizar(lsTokens);
+        //analizadorSintactico.analizar(lsTokens);
+        analisisSintacticoChafa(lsTokens);
+    }
+
+    private void analisisSintacticoChafa(ArrayList<Token> lsTokens) {
+
     }
 
     private boolean existeEnTabla(Token token, TablaTokens tabla) {

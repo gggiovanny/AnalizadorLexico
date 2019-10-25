@@ -1,19 +1,32 @@
 package analizador.sintactico
 
 import analizador.lexico.DefinicionRegular
+import analizador.lexico.Token
 
-class ChomskyProduction(name: String) {
+data class ChomskyProduction(
+        var name: String,
+        var parent: ChomskyProduction? = null,
+        var leftNonTerminal: ChomskyProduction? = null,
+        var rightNonTerminal: ChomskyProduction? = null,
+        private var valueTerminal: DefinicionRegular? = null
+) {
 
-    var name: String = name
-    var parent: ChomskyProduction? = null
-    var leftNonTerminal: ChomskyProduction? = null
-    var rightNonTerminal: ChomskyProduction? = null
-    var valueTerminal: DefinicionRegular? = null
-        set(value) {
+    fun setValueTerminal(value: DefinicionRegular) {
             if (leftNonTerminal == null && rightNonTerminal == null) {
-                field = value
+                valueTerminal = value
             } else {
                 throw Exception("No se puede poner un valor final terminal en una produccion con hijos NO terminales. Te equivocaste?")
+            }
+    }
+
+    fun getValueTerminal() = valueTerminal
+
+    var tokenAdj: Token? = null
+        set(value) {
+            if (isTerminal()) {
+                field = value
+            } else {
+                throw Exception("No se puede adjuntar a un token a una produccion NO terminal. Te equivocaste?")
             }
         }
 
