@@ -7,10 +7,10 @@ package analizador.lexico;
  */
 public class Token
 {
-	protected DefinicionRegular defReg; //la definicion regular que indica el tipo de token
-	protected String lexema;			//esto es el contenido en texto del token 
-	protected int numeroLexema;			//es la posicion que ocupa el lexema en la cadena de entrada original
-	protected int numeroToken;			//es numero que se va incrementando cada vez que se agrega un token del mismo tipo y que permite identificarlos
+	public DefinicionRegular defReg; //la definicion regular que indica el tipo de token
+	public String lexema;            //esto es el contenido en texto del token
+	public int numeroLexema;            //es la posicion que ocupa el lexema en la cadena de entrada original
+	public int numeroToken;            //es numero que se va incrementando cada vez que se agrega un token del mismo tipo y que permite identificarlos
 	public String info;
 
 	//constructor para inicializar un token. El numero de token se agrega automatica y consecutivamente en la clase TablaTokens

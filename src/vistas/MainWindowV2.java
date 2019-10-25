@@ -21,6 +21,7 @@ public class MainWindowV2 {
     private JPanel pnlTablas;
     private JPanel pnlBotones;
     private JPanel pnlTexto;
+    private JTable table1;
     private JPanel pnlGLC;
     private JButton btnTest;
     private JScrollPane scrollGLC;

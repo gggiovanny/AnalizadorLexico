@@ -13,9 +13,9 @@ public enum DefinicionRegular
 	ESPACIO ("\\s"),					//espacios de cualquier tipo, incluso tabuladores y saltos de linea
 	OPAR ("\\+|-|\\*|/"),				//operador aritmetico (+|-|/|*)
 	OPAS ("="),							//operador de asignacion (=)
-    SEP(","),
+	COMMA(","),
 	DEL (";"),							//delimitador
-    TDATO("int|float|double|char|boolean|String"),
+	TIPO("int|float|double|char|boolean|String"),
     TEXT("\"[^\"]*\""),
 
 	IDE ("([a-zA-Z]|_)\\w*"),			//identificador
