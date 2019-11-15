@@ -34,13 +34,7 @@ public class Token
 	}
 
 	//permite regresar una texto con el tipo de toke y su valor consecutivo.Ej: IDE1, IDE2, OPREL1, etc.
-	public String toString()
-	{
-		String texto = "NODEFINIDO";
-		
-		if(this.numeroToken >= 0)
-			texto = this.defReg.toString() + numeroToken;
-		
-		return texto;		
+	public String toString() {
+		return this.defReg.toString() + numeroToken;
 	}
 }

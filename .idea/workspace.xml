@@ -6,12 +6,19 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00b211cd-35ee-415e-abeb-2e88d8472af8" name="Default Changelist" comment="">
+    <list default="true" id="00b211cd-35ee-415e-abeb-2e88d8472af8" name="Default Changelist" comment="CMY a medias, esto es un backup">
+      <change afterPath="$PROJECT_DIR$/src/analizador/lexico/TipoDato.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/analizador/sintactico/TablaSimbolosFIla.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/analizador/sintactico/Validador.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/Response.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/compilador/TriploMaker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/analizador/lexico/Analizador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/lexico/Analizador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/analizador/sintactico/Analizador.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/sintactico/Analizador.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/analizador/sintactico/ChomskyProduction.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/sintactico/ChomskyProduction.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/analizador/sintactico/SentenceTypes.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/analizador/lexico/DefinicionRegular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/lexico/DefinicionRegular.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/analizador/lexico/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/lexico/Token.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/analizador/sintactico/Analizador.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/analizador/sintactico/ChomskyProduction.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vistas/MainWindow.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,9 +35,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Kotlin Class" />
         <option value="Kotlin File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -66,10 +73,16 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.21149425" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="common" />
+      <recent name="analizador.sintactico" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\GGONZALEZ\IdeaProjects\AnalizadorLexico\src\analizador\sintactico" />
       <recent name="C:\Users\GGONZALEZ\IdeaProjects\AnalizadorLexico\img" />
       <recent name="C:\Users\GGONZALEZ\IdeaProjects\AnalizadorLexico\src" />
       <recent name="C:\Users\GGONZALEZ\IdeaProjects\AnalizadorLexico\src\vistas" />
@@ -238,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571993886652</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="CMY a medias, esto es un backup">
+      <created>1572019479000</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1572019479000</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -293,7 +313,8 @@
     <MESSAGE value="Limpieza: Removidos parametros no utilizados" />
     <MESSAGE value="Corregido bug de loop infinito porque no se cortaba la cadena al hacer match en espacios en blanco (y cadena.lenght == 0 es condicion de salida del while)" />
     <MESSAGE value="Empezada implementacion de Analisis Sintactico usando CYK algorithm" />
-    <option name="LAST_COMMIT_MESSAGE" value="Empezada implementacion de Analisis Sintactico usando CYK algorithm" />
+    <MESSAGE value="CMY a medias, esto es un backup" />
+    <option name="LAST_COMMIT_MESSAGE" value="CMY a medias, esto es un backup" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -301,15 +322,10 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/analizador/sintactico/Analizador.kt</url>
-          <line>163</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/analizador/sintactico/Analizador.kt</url>
-          <line>131</line>
-          <option name="timeStamp" value="18" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/compilador/TriploMaker.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

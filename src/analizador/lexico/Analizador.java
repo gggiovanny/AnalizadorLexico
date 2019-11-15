@@ -1,5 +1,7 @@
 package analizador.lexico;
 
+import compilador.TriploMaker;
+
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -12,12 +14,12 @@ import java.util.regex.Pattern;
  */
 public class Analizador {
     public TablaTokens tablaSimbolos; // esto es basicamente un ArrayList de tokens con funciones extra (ver la clase)
-    public boolean patronEncontrado; // indica si se tuvo exito al encontrar en su totalidad todos los tokens en la
-    // cadena de entrada
     public TablaTokens tablaErrores; // tabla donde se guadan los tokens de error
+    public boolean patronEncontrado; // indica si se tuvo exito al encontrar en su totalidad todos los tokens en la cadena de entrada
     private Pattern p; // permite designar un patron (regex) a buscar en una cadena
     private Matcher m; // permite mostrar resultados de busqueda de un patron en una cadena
-    private analizador.sintactico.Analizador analizadorSintactico;
+
+    private TriploMaker compilador;
 
     public Analizador() {
         tablaSimbolos = new TablaTokens();
@@ -26,7 +28,7 @@ public class Analizador {
         for (DefinicionRegular defReg : DefinicionRegular.values())
             defReg.contador = 1;
 
-        analizadorSintactico = new analizador.sintactico.Analizador();
+        compilador = new TriploMaker();
     }
 
     public void buscarPatrones(String cadena) {
@@ -89,19 +91,95 @@ public class Analizador {
 
         }
 
-        //analizadorSintactico.analizar(lsTokens);
-        analisisSintacticoChafa(lsTokens);
-    }
-
-    private void analisisSintacticoChafa(ArrayList<Token> lsTokens) {
+        //analisisSintacticoChafa(lsTokens);
+        compilador.compilar(lsTokens);
 
     }
+
+
+    private boolean esOPERADOR(Token token) {
+        return token.defReg == DefinicionRegular.IDE || token.defReg == DefinicionRegular.DIG;
+    }
+
+
+    private void analisisSintacticoChafa(ArrayList<Token> ENTRADA) {
+
+
+        int c = 0;
+        DefinicionRegular valorEsperado;
+
+
+        if (ENTRADA.size() < c + 1)
+            return;
+        valorEsperado = DefinicionRegular.IDE;
+        if (ENTRADA.get(c).defReg != valorEsperado) {
+            ENTRADA.get(c).info = " (ESPERADO " + valorEsperado.toString() + ")";
+            if (!ENTRADA.get(c).defReg.name().contains("ERROR"))
+                tablaErrores.add(ENTRADA.get(c));
+        }
+        c++;
+
+        if (ENTRADA.size() < c + 1)
+            return;
+        valorEsperado = DefinicionRegular.OPAS;
+        if (ENTRADA.get(c).defReg != valorEsperado) {
+            ENTRADA.get(c).info = " (ESPERADO " + valorEsperado.toString() + ")";
+            if (!ENTRADA.get(c).defReg.name().contains("ERROR"))
+                tablaErrores.add(ENTRADA.get(c));
+        }
+        c++;
+
+        if (ENTRADA.size() < c + 1)
+            return;
+        valorEsperado = DefinicionRegular.OPAS;
+        if (!esOPERADOR(ENTRADA.get(c))) {
+            ENTRADA.get(c).info = " (ESPERADO IDE|DIG )";
+            if (!ENTRADA.get(c).defReg.name().contains("ERROR"))
+                tablaErrores.add(ENTRADA.get(c));
+        }
+        c++;
+
+        if (ENTRADA.size() < c + 1)
+            return;
+        valorEsperado = DefinicionRegular.OPAR;
+        if (ENTRADA.get(c).defReg != valorEsperado) {
+            ENTRADA.get(c).info = " (ESPERADO " + valorEsperado.toString() + ")";
+            if (!ENTRADA.get(c).defReg.name().contains("ERROR"))
+                tablaErrores.add(ENTRADA.get(c));
+        }
+        c++;
+
+        if (ENTRADA.size() < c + 1)
+            return;
+        valorEsperado = DefinicionRegular.OPAS;
+        if (!esOPERADOR(ENTRADA.get(c))) {
+            ENTRADA.get(c).info = " (ESPERADO IDE|DIG )";
+            if (!ENTRADA.get(c).defReg.name().contains("ERROR"))
+                tablaErrores.add(ENTRADA.get(c));
+        }
+        c++;
+
+        if (ENTRADA.size() < c + 1)
+            return;
+        valorEsperado = DefinicionRegular.DEL;
+        if (ENTRADA.get(c).defReg != valorEsperado) {
+            ENTRADA.get(c).info = " (ESPERADO " + valorEsperado.toString() + ")";
+            if (!ENTRADA.get(c).defReg.name().contains("ERROR"))
+                tablaErrores.add(ENTRADA.get(c));
+        }
+        c++;
+
+    }
+
+
 
     private boolean existeEnTabla(Token token, TablaTokens tabla) {
-        for (Token tokenTabla : tabla.tokens) {
-            if (token.defReg == tokenTabla.defReg) {
-                if (token.lexema.equals(tokenTabla.lexema))
+        for (Token tokenEnTabla : tabla.tokens) {
+            if (token.defReg == tokenEnTabla.defReg) {
+                if (token.lexema.equals(tokenEnTabla.lexema)) {
+                    token.numeroToken = tokenEnTabla.numeroToken;
                     return true;
+                }
             }
         }
         return false;
