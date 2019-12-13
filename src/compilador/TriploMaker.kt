@@ -6,8 +6,16 @@ import analizador.lexico.Token
 import analizador.sintactico.Producciones
 import analizador.sintactico.SentenceToken
 import analizador.sintactico.getTokenListCorrectPosition
+import java.io.File
+import java.io.FileWriter
+import java.io.IOException
+import java.io.PrintWriter
+import java.util.*
+import java.util.logging.Level
+import java.util.logging.Logger
 import java.util.regex.Matcher
 import java.util.regex.Pattern
+import kotlin.collections.ArrayList
 
 class TriploMaker(tablaSimbolos: TablaTokens, tablaErrores: TablaTokens, listaErrores: ArrayList<String>) {
     private lateinit var tablaSimbolos: TablaTokens // tabla de simbolos obtenida del analizador lexico
@@ -28,13 +36,14 @@ class TriploMaker(tablaSimbolos: TablaTokens, tablaErrores: TablaTokens, listaEr
     fun compilar(rawTokens: ArrayList<Token>, sentenceTokens: ArrayList<SentenceToken>): Boolean { // Funcion que se llama desde el validador sintactico
         val tablaTriplo = ArrayList<Triplo>()
 
-        var inicio_while: Int = 0
+        var inicio_while_stack = Stack<Int>()
+
         for (sentenceToken in sentenceTokens) {
             val tokensInSentence: ArrayList<Token> = getTokenListCorrectPosition(sentenceToken.sentence, tablaSimbolos, rawTokens)
 
             /** GUARDANDO POSICION DEL INICIO DEL DO WHILE */
             if(sentenceToken.tipoProduccion == Producciones.INICIO_DO_WHILE) {
-                inicio_while = tablaTriplo.size
+                inicio_while_stack.add(tablaTriplo.size)
             }
 
             /** ASIGNACIONES A TRIPLO */
@@ -54,22 +63,22 @@ class TriploMaker(tablaSimbolos: TablaTokens, tablaErrores: TablaTokens, listaEr
                 if(operadoresCount > 1) {
 
                     tablaTriplo.add(Triplo(
-                            datoObjeto = "T1",
-                            datoFuente = tokensInSentenceArithOnly.get(0).lexema,
+                            datoObjeto = "T1  ",
+                            datoFuente = tokensInSentenceArithOnly.get(0).toString(),
                             operador = DefinicionRegular.OPAS.toString()
                     ))
 
                     for(i in 1 until tokensInSentenceArithOnly.size step 2) {
                         tablaTriplo.add(Triplo(
-                                datoObjeto = "T1",
-                                datoFuente = tokensInSentenceArithOnly.get(i+1).lexema,
-                                operador = tokensInSentenceArithOnly.get(i).lexema
+                                datoObjeto = "T1  ",
+                                datoFuente = tokensInSentenceArithOnly.get(i+1).toString(),
+                                operador = tokensInSentenceArithOnly.get(i).toString()
                         ))
                     }
 
                     tablaTriplo.add(Triplo(
-                            datoObjeto = tokensInSentence.get(0).lexema,
-                            datoFuente = "T1",
+                            datoObjeto = tokensInSentence.get(0).toString(),
+                            datoFuente = "T1  ",
                             operador = DefinicionRegular.OPAS.toString()
                     ))
 
@@ -80,9 +89,9 @@ class TriploMaker(tablaSimbolos: TablaTokens, tablaErrores: TablaTokens, listaEr
                     val valor: Token = tokensInSentence.first { token -> token.defReg == DefinicionRegular.DIG }
 
                     tablaTriplo.add(Triplo(
-                            datoObjeto = IDEQueRecibeValor.lexema,
-                            datoFuente = valor.lexema,
-                            operador = operador.lexema
+                            datoObjeto = IDEQueRecibeValor.toString(),
+                            datoFuente = valor.toString(),
+                            operador = operador.toString()
                     ))
                     true
                 }
@@ -103,22 +112,22 @@ class TriploMaker(tablaSimbolos: TablaTokens, tablaErrores: TablaTokens, listaEr
 
 
                 tablaTriplo.add(Triplo(
-                        datoObjeto = "T1",
-                        datoFuente = tokensDentroDelParentesis.get(0).lexema,
+                        datoObjeto = "T1  ",
+                        datoFuente = tokensDentroDelParentesis.get(0).toString(),
                         operador = DefinicionRegular.OPAS.toString()
                 ))
 
                 tablaTriplo.add(Triplo(
-                        datoObjeto = "T1",
-                        datoFuente = tokensDentroDelParentesis.get(2).lexema,
-                        operador = tokensDentroDelParentesis.get(1).lexema
+                        datoObjeto = "T1  ",
+                        datoFuente = tokensDentroDelParentesis.get(2).toString(),
+                        operador = tokensDentroDelParentesis.get(1).toString()
                 ))
 
 
                 tablaTriplo.add(Triplo(
-                        datoObjeto = "CMP",
+                        datoObjeto = "CMP ",
                         datoFuente = "TRUE",
-                        operador = inicio_while.toString()
+                        operador = inicio_while_stack.pop().toString()
                 ))
 
                 true
@@ -130,7 +139,37 @@ class TriploMaker(tablaSimbolos: TablaTokens, tablaErrores: TablaTokens, listaEr
 
         }
 
-
+        escribirTxt(tablaTriplo)
         return false
     }
+
+    fun escribirTxt(tablaTriplo: ArrayList<Triplo>) {
+        val archivo: File
+        val escribir: FileWriter //para escribir
+        val linea: PrintWriter //para escribir
+
+        archivo = File("TriploGenerado.txt")
+        if (!archivo.exists())
+            archivo.createNewFile()
+
+        try {
+            escribir = FileWriter(archivo, false)
+            linea = PrintWriter(escribir)
+            //Se escribe en el archivo
+
+            linea.println("F\tD.O.\t\tD.F.\t\tOP" )
+
+            for ((i, triplo) in tablaTriplo.withIndex()) {
+                linea.println("$i\t${triplo.datoObjeto}\t\t${triplo.datoFuente}\t\t${triplo.operador}" )
+            }
+
+            linea.close()
+            escribir.close()
+        } catch (ex: IOException) {
+            Logger.getLogger(Triplo::class.java.name).log(Level.SEVERE, null, ex)
+        }
+
+    }
+
+
 }
