@@ -12,7 +12,7 @@ public enum DefinicionRegular
 	ERROR_IDE("\\d+(([a-zA-Z]|_)\\w*)+"),		//error para cuando se pone un numero al principio de un identificador. Ej: 1var, 4num.
 	ESPACIO ("\\s"),					//espacios de cualquier tipo, incluso tabuladores y saltos de linea
 	OPAR ("\\+|-|\\*|/"),				//operador aritmetico (+|-|/|*)
-	OPCOMP("==|<=?|>=?"),
+	OPCMP("==|=!|<=?|>=?"),
 	OPAS ("="),							//operador de asignacion (=)
 	COMMA(","),
     MOD("%"),
@@ -22,11 +22,12 @@ public enum DefinicionRegular
 	PARA("\\("),
 	PARB("\\)"),
 	TIPO(TipoDato.BOOLEAN.toRegex()),
-    TEXT("\"[^\"]*\""),
-	IDE ("([a-zA-Z]|_)\\w*"),			//identificador
-	DIG ("(\\d*\\.\\d+)|\\d+"),			//digito normal o decimal
+	TEXT("\"[^\"]*\""),
+	CHARVALUE("'[^\"]*'"),
 	DO("do"),
 	WHILE("while"),
+	IDE ("([a-zA-Z]|_)\\w*"),			//identificador
+	DIG ("(\\d*\\.\\d+)|\\d+"),			//digito normal o decimal
 	ERROR_UNEX (".\\w*");					//simbolo inesperado e invalido
 	
 	/* 

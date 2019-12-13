@@ -1,7 +1,6 @@
 package analizador.lexico;
 
 import analizador.sintactico.Validador;
-import compilador.TriploMaker;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -21,7 +20,6 @@ public class Analizador {
     private Matcher m; // permite mostrar resultados de busqueda de un patron en una cadena
 
     private Validador analizadorSintactico;
-    private TriploMaker compilador;
     public ArrayList<String> listaErrores;
 
     public Analizador() {
@@ -33,7 +31,7 @@ public class Analizador {
             defReg.contador = 1;
 
         analizadorSintactico = new Validador(tablaSimbolos, tablaErrores, listaErrores);
-        compilador = new TriploMaker();
+
     }
 
     public void buscarPatrones(String cadena) {
@@ -98,8 +96,6 @@ public class Analizador {
 
 
         analizadorSintactico.validar(rawTokens);
-        compilador.compilar(rawTokens);
-
     }
 
 
