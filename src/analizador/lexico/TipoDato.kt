@@ -3,9 +3,13 @@ package analizador.lexico
 enum class TipoDato(text: String) {
     INT("int"),
     FLOAT("float"),
+    DOUBLE("double"),
     CHAR("char"),
     BOOLEAN("boolean"),
-    STRING("string");
+    STRING("string"),
+    STRING2("String"),
+    INDEFINIDO("indefinido")
+    ;
 
     var text: String = text
 

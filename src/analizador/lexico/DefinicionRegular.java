@@ -21,12 +21,12 @@ public enum DefinicionRegular
 	CORB("\\}"),
 	PARA("\\("),
 	PARB("\\)"),
-	DO("do"),
-	WHILE("while"),
 	TIPO(TipoDato.BOOLEAN.toRegex()),
     TEXT("\"[^\"]*\""),
 	IDE ("([a-zA-Z]|_)\\w*"),			//identificador
 	DIG ("(\\d*\\.\\d+)|\\d+"),			//digito normal o decimal
+	DO("do"),
+	WHILE("while"),
 	ERROR_UNEX (".\\w*");					//simbolo inesperado e invalido
 	
 	/* 
@@ -45,11 +45,6 @@ public enum DefinicionRegular
 	}
 
     public String regex() {
-        return this.regex;
-    }
-
-    @Override
-    public String toString() {
         return this.regex;
     }
 }

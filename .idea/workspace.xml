@@ -6,21 +6,25 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00b211cd-35ee-415e-abeb-2e88d8472af8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/analizador/sintactico/Producciones.kt" afterDir="false" />
+    <list default="true" id="00b211cd-35ee-415e-abeb-2e88d8472af8" name="Default Changelist" comment="CMY a medias, esto es un backup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/analizador/lexico/Analizador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/lexico/Analizador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/analizador/lexico/DefinicionRegular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/lexico/DefinicionRegular.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/analizador/lexico/TablaTokens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/lexico/TablaTokens.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/analizador/lexico/TipoDato.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/lexico/TipoDato.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/analizador/lexico/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/lexico/Token.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/analizador/sintactico/TablaSimbolosFIla.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/analizador/sintactico/Producciones.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/sintactico/Producciones.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/analizador/sintactico/Validador.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/sintactico/Validador.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vistas/MainWindowV2.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/vistas/MainWindowV2.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vistas/MainWindowV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vistas/MainWindowV2.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="241" />
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
@@ -31,10 +35,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Class" />
         <option value="Kotlin File" />
         <option value="Class" />
         <option value="Kotlin Enum" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -88,18 +92,6 @@
       <recent name="C:\Users\GGONZALEZ\IdeaProjects\AnalizadorLexico\src\vistas" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager" selected="Application.MainWindowV2">
     <configuration name="MainWindowV2" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="vistas.MainWindowV2" />
@@ -127,6 +119,18 @@
       <item itemvalue="Application.MainWindowV2" />
       <item itemvalue="Application.Prueba" />
     </list>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -319,6 +323,44 @@
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
+  <component name="WindowStateProjectService">
+    <state width="1879" height="282" key="GridCell.Tab.0.bottom" timestamp="1576223834937">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1879" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576223834937" />
+    <state width="1879" height="282" key="GridCell.Tab.0.center" timestamp="1576223834937">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1879" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576223834937" />
+    <state width="1879" height="282" key="GridCell.Tab.0.left" timestamp="1576223834937">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1879" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576223834937" />
+    <state width="1879" height="282" key="GridCell.Tab.0.right" timestamp="1576223834937">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1879" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576223834937" />
+    <state width="1879" height="348" key="GridCell.Tab.1.bottom" timestamp="1576223313559">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1879" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576223313559" />
+    <state width="1879" height="348" key="GridCell.Tab.1.center" timestamp="1576223313559">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1879" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576223313559" />
+    <state width="1879" height="348" key="GridCell.Tab.1.left" timestamp="1576223313559">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1879" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576223313559" />
+    <state width="1879" height="348" key="GridCell.Tab.1.right" timestamp="1576223313559">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1879" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576223313559" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1576209177850">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576209177850" />
+  </component>
   <component name="XDebuggerManager">
     <watches-manager>
       <configuration name="Application">
@@ -327,8 +369,7 @@
       </configuration>
     </watches-manager>
   </component>
-  <component name="antWorkspaceConfiguration">
-    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
-    <option name="FILTER_TARGETS" value="false" />
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Compilador$MainWindowV2.ic" NAME="MainWindowV2 Coverage Results" MODIFIED="1576210119236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

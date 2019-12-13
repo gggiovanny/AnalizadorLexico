@@ -51,6 +51,20 @@ public class TablaTokens {
         return fila;
     }
 
+    public Object[] obtenerSiguienteFilaConTipo() {
+        Object[] fila;
+        try {
+            fila = new Object[]{tokens.get(contador).toString() + tokens.get(contador).info, tokens.get(contador).lexema, tokens.get(contador).getTipoDato()};
+        } catch (Exception e) {
+            fila = null;
+            contador = 0;
+        }
+        contador++;
+        return fila;
+    }
+
+
+
     //Este metodo es la razon de existir de esta clase, pues
     //le da la funcion lleva un numero consecutivo en tokens
     //del mismo tipo.
@@ -70,5 +84,24 @@ public class TablaTokens {
 
     public Token get(int i) {
         return tokens.get(i);
+    }
+
+    public boolean existeEnTabla(Token token) {
+        for (Token tokenEnTabla : this.tokens) {
+            if (token.defReg == tokenEnTabla.defReg) {
+                if (token.lexema.equals(tokenEnTabla.lexema)) {
+                    token.numeroToken = tokenEnTabla.numeroToken;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public Token getToken(String stringToken) {
+        return tokens.stream()
+                .filter(token -> stringToken.equals(token.toString()))
+                .findAny()
+                .orElse(null);
     }
 }

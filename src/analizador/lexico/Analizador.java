@@ -22,20 +22,22 @@ public class Analizador {
 
     private Validador analizadorSintactico;
     private TriploMaker compilador;
+    public ArrayList<String> listaErrores;
 
     public Analizador() {
         tablaSimbolos = new TablaTokens();
         tablaErrores = new TablaTokens();
         patronEncontrado = false;
+        listaErrores = new ArrayList<>();
         for (DefinicionRegular defReg : DefinicionRegular.values())
             defReg.contador = 1;
 
-        analizadorSintactico = new Validador(tablaSimbolos, tablaErrores);
+        analizadorSintactico = new Validador(tablaSimbolos, tablaErrores, listaErrores);
         compilador = new TriploMaker();
     }
 
     public void buscarPatrones(String cadena) {
-        ArrayList<Token> lsTokens = new ArrayList<Token>(); // contendra una lista completa secuencial de los tokens hallados (sin espacios).
+        ArrayList<Token> rawTokens = new ArrayList<Token>(); // contendra una lista completa secuencial de los tokens hallados (sin espacios).
         Token token = new Token(); // objeto que contendra la informacion de los tokens que se hallen
         // no se usa individualmente, se anexa a tablaTokens
         int contadorLexema = 0;
@@ -63,16 +65,16 @@ public class Analizador {
                     token.numeroColumna = contadorColumna;
 
 					if (token.defReg != DefinicionRegular.ESPACIO)
-                        lsTokens.add(token); // se agrega indistintamente a la lista para analisis posteriores
+                        rawTokens.add(token); // se agrega indistintamente a la lista para analisis posteriores
 
                     // En la siguiente seccion se agrega el token a su tabla correspondiente.
                     if (token.defReg.name().contains("ERROR")) {
-                        if (!existeEnTabla(token, tablaErrores)) {
+                        if (!tablaErrores.existeEnTabla(token)) {
                             tablaErrores.add(token); // se agrega el nuevo token como error
                             tablaSimbolos.add(token);
                         }
                     } else {
-                        if (!existeEnTabla(token, tablaSimbolos)) {
+                        if (!tablaSimbolos.existeEnTabla(token)) {
                             // se agrega el token nuevo a la tabla simbolos, donde se le asigna su
                             // numero consecutivo automaticamente
                             tablaSimbolos.add(token);
@@ -95,21 +97,12 @@ public class Analizador {
         }
 
 
-        compilador.compilar(lsTokens);
+        analizadorSintactico.validar(rawTokens);
+        compilador.compilar(rawTokens);
 
     }
 
-    private boolean existeEnTabla(Token token, TablaTokens tabla) {
-        for (Token tokenEnTabla : tabla.tokens) {
-            if (token.defReg == tokenEnTabla.defReg) {
-                if (token.lexema.equals(tokenEnTabla.lexema)) {
-                    token.numeroToken = tokenEnTabla.numeroToken;
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
+
 
 
 }

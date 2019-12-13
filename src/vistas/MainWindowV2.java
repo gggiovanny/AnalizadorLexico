@@ -4,6 +4,9 @@ import analizador.lexico.Analizador;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.Style;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -21,22 +24,28 @@ public class MainWindowV2 {
     private JPanel pnlTablas;
     private JPanel pnlBotones;
     private JPanel pnlTexto;
-    private JTable table1;
+    private JTextPane txtpErrores;
     private JPanel pnlGLC;
     private JButton btnTest;
     private JScrollPane scrollGLC;
     DefaultTableModel mdlTokens;
     DefaultTableModel mdlErrores;
-    final String[] columnNames = {"Token", "Lexema"};
+    final String[] columnNamesSimbolos = {"Token", "Lexema", "Tipo"};
+    final String[] columnNamesErrores = {"Token", "Lexema"};
     JFrame frmMain;
+    StyledDocument doc;
+    Style style;
 
     public MainWindowV2() {
 
-        mdlTokens = new DefaultTableModel(columnNames, 0);
+        mdlTokens = new DefaultTableModel(columnNamesSimbolos, 0);
         tablaTokens.setModel(mdlTokens);
 
-        mdlErrores = new DefaultTableModel(columnNames, 0);
+        mdlErrores = new DefaultTableModel(columnNamesErrores, 0);
         tablaErrores.setModel(mdlErrores);
+
+        doc = txtpErrores.getStyledDocument();
+        style = txtpErrores.addStyle("Estilo", null);
 
         btnAnalizar.addActionListener(e -> Analizar(txtCadenaIngreso.getText()));
         btnLimpiar.addActionListener(e -> Limpiar(true));
@@ -71,7 +80,19 @@ public class MainWindowV2 {
                 }
             }
         }));
+
     }
+
+    private void agregarError(String textoError) {
+        //configurando color del texto
+        StyleConstants.setForeground(style, Color.red);
+        try {
+            doc.insertString(doc.getLength(), textoError+"\n", style);
+        } catch (Exception e)  {
+            e.printStackTrace();
+        }
+    }
+
     private void agregarLabels(String texto)
     {
         JLabel lbl = new JLabel();
@@ -90,11 +111,11 @@ public class MainWindowV2 {
         Analizador analizador = new Analizador();
         analizador.buscarPatrones(codigoAnalizar);
 
-        Object[] filaToken = analizador.tablaSimbolos.obtenerSiguienteFila();
+        Object[] filaToken = analizador.tablaSimbolos.obtenerSiguienteFilaConTipo();
         while (filaToken != null)
         {
             mdlTokens.addRow(filaToken);
-            filaToken = analizador.tablaSimbolos.obtenerSiguienteFila();
+            filaToken = analizador.tablaSimbolos.obtenerSiguienteFilaConTipo();
         }
 
         Object[] filaError = analizador.tablaErrores.obtenerSiguienteFila();
@@ -102,6 +123,10 @@ public class MainWindowV2 {
         {
             mdlErrores.addRow(filaError);
             filaError = analizador.tablaErrores.obtenerSiguienteFila();
+        }
+
+        for (String error : analizador.listaErrores) {
+            agregarError(error);
         }
 
         
@@ -115,6 +140,7 @@ public class MainWindowV2 {
             txtCadenaIngreso.setText("");
         mdlTokens.setRowCount(0);
         mdlErrores.setRowCount(0);
+        txtpErrores.setText("");
     }
 
 

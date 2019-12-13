@@ -6,16 +6,13 @@ enum class Producciones(comboTokens: String) {
         char b;
         j = a + b - c;
     */
-    DECLARACION_ASIGNACION("%TIPO%" + Producciones.ASIGNACION.toString())
-    ,
-    DECLARACION("%TIPO%%IDE%")
-    ,
-    ASIGNACION("%IDE%%OPAS%%IDE%(%OPAR%%IDE%)*")
+     DECLARACION_ASIGNACION("%TIPO\\d*%" + "%IDE\\d*%%OPAS\\d*%(%IDE\\d*%|%DIG\\d*%)(%OPAR\\d*%(%IDE\\d*%|%DIG\\d*%))*")
+    ,DECLARACION("%TIPO\\d*%%IDE\\d*%(%COMMA\\d*%%IDE\\d*%)*")
+    ,ASIGNACION("%IDE\\d*%%OPAS\\d*%(%IDE\\d*%|%DIG\\d*%)(%OPAR\\d*%(%IDE\\d*%|%DIG\\d*%))*")
+    ,DEL("%DEL\\d*%")
+    ,ERROR_UNEX ("(%.+\\d*%)+")
     ;
 
-    val text = comboTokens
-    override fun toString(): String {
-        return this.text
-    }
-
+    private val text = comboTokens
+    fun regex() = this.text
 }

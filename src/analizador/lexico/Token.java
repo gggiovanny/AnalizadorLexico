@@ -38,7 +38,10 @@ public class Token {
 
     //para obtener el valor de tipoDato, ya que se puso privado para usar el setter
     public TipoDato getTipoDato() {
-        return tipoDato;
+        if(defReg == DefinicionRegular.IDE && tipoDato == null)
+            return TipoDato.INDEFINIDO;
+        else
+            return tipoDato;
     }
 
     //solo setear el tipo de dato cuando se trate de un token de tipo IDE (identificador o variable).
