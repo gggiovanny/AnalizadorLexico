@@ -7,16 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00b211cd-35ee-415e-abeb-2e88d8472af8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/analizador/sintactico/TokenSentence.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/compilador/Triplo.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/compilador/TriploMaker.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/analizador/lexico/Analizador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/lexico/Analizador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/analizador/lexico/DefinicionRegular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/lexico/DefinicionRegular.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/analizador/lexico/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/lexico/Token.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/analizador/sintactico/Producciones.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/sintactico/Producciones.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/analizador/sintactico/TokenSentence.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/sintactico/SentenceToken.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/analizador/sintactico/Validador.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/sintactico/Validador.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/compilador/TriploMaker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/compilador/TriploMaker.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/compilador/TriploMaker.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vistas/MainWindowV2.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/vistas/MainWindowV2.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vistas/MainWindowV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vistas/MainWindowV2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576223929777</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Mejorada la implementacion de compatibilidad de tipos (ahora detecta errores en asignacion de char, int y text) y creada base para la creacion de triplos">
+      <created>1576245964371</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1576245964371</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -331,64 +334,88 @@
     <MESSAGE value="Empezada implementacion de Analisis Sintactico usando CYK algorithm" />
     <MESSAGE value="CMY a medias, esto es un backup" />
     <MESSAGE value="Agregado todo lo necesario para el analisis sintactico de la unidad 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Agregado todo lo necesario para el analisis sintactico de la unidad 2" />
+    <MESSAGE value="Mejorada la implementacion de compatibilidad de tipos (ahora detecta errores en asignacion de char, int y text) y creada base para la creacion de triplos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mejorada la implementacion de compatibilidad de tipos (ahora detecta errores en asignacion de char, int y text) y creada base para la creacion de triplos" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="508" y="115" key="CommitChangelistDialog2" timestamp="1576223927028">
+    <state x="388" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1576250284126">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="508" y="115" key="CommitChangelistDialog2/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576223927028" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1576245853573">
+    <state x="388" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576250284126" />
+    <state x="508" y="115" key="CommitChangelistDialog2" timestamp="1576245961543">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576245853573" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1576245853573">
+    <state x="508" y="115" key="CommitChangelistDialog2/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576245961543" />
+    <state width="501" height="466" key="DebuggerActiveHint" timestamp="1576250046245">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576245853573" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1576245853573">
+    <state width="501" height="466" key="DebuggerActiveHint/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576250046245" />
+    <state width="1877" height="413" key="GridCell.Tab.0.bottom" timestamp="1576252676043">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576245853573" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1576245853573">
+    <state width="1877" height="413" key="GridCell.Tab.0.bottom/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576252676043" />
+    <state width="1877" height="413" key="GridCell.Tab.0.center" timestamp="1576252676043">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576245853573" />
-    <state width="1877" height="413" key="GridCell.Tab.1.bottom" timestamp="1576242895497">
+    <state width="1877" height="413" key="GridCell.Tab.0.center/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576252676043" />
+    <state width="1877" height="413" key="GridCell.Tab.0.left" timestamp="1576252676043">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="413" key="GridCell.Tab.1.bottom/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576242895497" />
-    <state width="1877" height="413" key="GridCell.Tab.1.center" timestamp="1576242895497">
+    <state width="1877" height="413" key="GridCell.Tab.0.left/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576252676043" />
+    <state width="1877" height="413" key="GridCell.Tab.0.right" timestamp="1576252676043">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="413" key="GridCell.Tab.1.center/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576242895497" />
-    <state width="1877" height="413" key="GridCell.Tab.1.left" timestamp="1576242895497">
+    <state width="1877" height="413" key="GridCell.Tab.0.right/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576252676043" />
+    <state width="1877" height="413" key="GridCell.Tab.1.bottom" timestamp="1576252676043">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="413" key="GridCell.Tab.1.left/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576242895497" />
-    <state width="1877" height="413" key="GridCell.Tab.1.right" timestamp="1576242895497">
+    <state width="1877" height="413" key="GridCell.Tab.1.bottom/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576252676043" />
+    <state width="1877" height="413" key="GridCell.Tab.1.center" timestamp="1576252676043">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="413" key="GridCell.Tab.1.right/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576242895497" />
-    <state width="498" height="451" key="SwitcherDM" timestamp="1576245428776">
+    <state width="1877" height="413" key="GridCell.Tab.1.center/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576252676043" />
+    <state width="1877" height="413" key="GridCell.Tab.1.left" timestamp="1576252676043">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="498" height="451" key="SwitcherDM/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576245428776" />
-    <state x="551" y="242" key="Vcs.Push.Dialog.v2" timestamp="1576223933701">
+    <state width="1877" height="413" key="GridCell.Tab.1.left/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576252676043" />
+    <state width="1877" height="413" key="GridCell.Tab.1.right" timestamp="1576252676043">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="551" y="242" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576223933701" />
+    <state width="1877" height="413" key="GridCell.Tab.1.right/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576252676043" />
+    <state width="498" height="451" key="SwitcherDM" timestamp="1576247797823">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="498" height="451" key="SwitcherDM/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576247797823" />
+    <state x="551" y="242" key="Vcs.Push.Dialog.v2" timestamp="1576245966652">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="551" y="242" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576245966652" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1576209177850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-768.229.768.984@0.0.1920.1040" timestamp="1576209177850" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/compilador/TriploMaker.kt</url>
+          <line>79</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/compilador/TriploMaker.kt</url>
+          <line>61</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="p" language="JAVA" />
         <watch expression="tokenMatchedOnce" />
+        <watch expression="rawTokens" />
       </configuration>
     </watches-manager>
   </component>

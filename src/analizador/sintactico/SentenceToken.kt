@@ -1,6 +1,6 @@
 package analizador.sintactico
 
-data class TokenSentence (
+data class SentenceToken (
         val sentence: String,
         val tipoProduccion: Producciones
 )

@@ -1,9 +1,10 @@
 package compilador
 
+import analizador.lexico.DefinicionRegular
 import analizador.lexico.TablaTokens
 import analizador.lexico.Token
 import analizador.sintactico.Producciones
-import analizador.sintactico.TokenSentence
+import analizador.sintactico.SentenceToken
 import analizador.sintactico.getTokenListCorrectPosition
 import java.util.regex.Matcher
 import java.util.regex.Pattern
@@ -24,22 +25,63 @@ class TriploMaker(tablaSimbolos: TablaTokens, tablaErrores: TablaTokens, listaEr
     }
 
 
-    fun compilar(rawTokens: ArrayList<Token>, tokenSentences: ArrayList<TokenSentence>): Boolean { // Funcion que se llama desde el validador sintactico
+    fun compilar(rawTokens: ArrayList<Token>, sentenceTokens: ArrayList<SentenceToken>): Boolean { // Funcion que se llama desde el validador sintactico
         val tablaTriplo = ArrayList<Triplo>()
 
+        for (sentenceToken in sentenceTokens) {
+            val tokensInSentence: ArrayList<Token> = getTokenListCorrectPosition(sentenceToken.sentence, tablaSimbolos, rawTokens)
 
-        for (tokenSentence in tokenSentences) {
-            val sentenceTokens: ArrayList<Token> = getTokenListCorrectPosition(tokenSentence.sentence, tablaSimbolos, rawTokens)
+            if(sentenceToken.tipoProduccion == Producciones.ASIGNACION_DIG
+                    || sentenceToken.tipoProduccion == Producciones.ASIGNACION_TEXT
+                    || sentenceToken.tipoProduccion == Producciones.ASIGNACION_CHARVALUE
+                    || sentenceToken.tipoProduccion == Producciones.DECLARACION_ASIGNACION_DIG
+                    || sentenceToken.tipoProduccion == Producciones.DECLARACION_ASIGNACION_TEXT
+                    || sentenceToken.tipoProduccion == Producciones.DECLARACION_ASIGNACION_CHARVALUE
+            ) {
 
-            when(tokenSentence.tipoProduccion) {
-                Producciones.DECLARACION -> {
+                val tokensInSentenceArithOnly: ArrayList<Token> = ArrayList(tokensInSentence.filter{token -> tokensInSentence.get(0) != token && tokensInSentence.get(1) != token })
+                val operadoresCount = tokensInSentenceArithOnly.
+                        filter { token -> token.defReg == DefinicionRegular.DIG || token.defReg == DefinicionRegular.IDE}
+                        .size
+                // si el numero de operadores en la aritmetica es mayor a 1
+                if(operadoresCount > 1) {
+
                     tablaTriplo.add(Triplo(
-                            datoObjeto = "",
-                            datoFuente = "",
-                            operador = ""
+                            datoObjeto = "T1",
+                            datoFuente = tokensInSentenceArithOnly.get(0).toString(),
+                            operador = DefinicionRegular.OPAS.toString()
+                    ))
+
+                    for(i in 1 until tokensInSentenceArithOnly.size step 2) {
+                        tablaTriplo.add(Triplo(
+                                datoObjeto = "T1",
+                                datoFuente = tokensInSentenceArithOnly.get(i+1).toString(),
+                                operador = tokensInSentenceArithOnly.get(i).toString()
+                        ))
+                    }
+                    true
+
+
+
+                } else { // cuando solo hay un operador aritmetico, es asignacion simple
+                    val IDEQueRecibeValor: Token = tokensInSentence.first { token -> token.defReg == DefinicionRegular.IDE }
+                    val operador: Token = tokensInSentence.first { token -> token.defReg == DefinicionRegular.OPAS }
+                    val valor: Token = tokensInSentence.first { token -> token.defReg == DefinicionRegular.DIG }
+
+                    tablaTriplo.add(Triplo(
+                            datoObjeto = IDEQueRecibeValor.toString(),
+                            datoFuente = valor.toString(),
+                            operador = operador.toString()
                     ))
                 }
+
+
+
+                true
             }
+
+
+
 
 
         }

@@ -23,8 +23,9 @@ public class MainWindowV2 {
     private JButton leyendaButton;
     private JPanel pnlTablas;
     private JPanel pnlBotones;
-    private JPanel pnlTexto;
+    private JPanel pnlErrores;
     private JTextPane txtpErrores;
+    private JScrollPane scrollTextoIngreso;
     private JPanel pnlGLC;
     private JButton btnTest;
     private JScrollPane scrollGLC;

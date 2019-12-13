@@ -27,7 +27,7 @@ class Validador(tablaSimbolos: TablaTokens, tablaErrores: TablaTokens, listaErro
 
     fun validar(rawTokens: ArrayList<Token>): Response<ArrayList<Token>> {
         var stringTokens = tokensStringify(rawTokens)
-        val lsTokenSentences = ArrayList<TokenSentence>()
+        val lsTokenSentences = ArrayList<SentenceToken>()
 
         while (stringTokens.length > 0) {
             for (produccion in Producciones.values()) { // se recorren una por una las expresiones regulares de las producciones
@@ -37,7 +37,7 @@ class Validador(tablaSimbolos: TablaTokens, tablaErrores: TablaTokens, listaErro
                 if (m.lookingAt()) { // se buscan coincidencias unicamente al principio de la cadena de entrada
                     val stringTokenSentence: String = m.group()
                     if(produccion != Producciones.DEL)
-                        lsTokenSentences.add(TokenSentence(stringTokenSentence, produccion)) // agregando todas las sentencias a una lista
+                        lsTokenSentences.add(SentenceToken(stringTokenSentence, produccion)) // agregando todas las sentencias a una lista
 
                     // cuando se encuentra una declaracion, se detecta que tipo de dato es y se le pone a los
                     // identificadores que abarca la declaracion en la tabla de simbolos global
@@ -68,8 +68,17 @@ class Validador(tablaSimbolos: TablaTokens, tablaErrores: TablaTokens, listaErro
                         val produccionTokens: ArrayList<Token> = getTokenListCorrectPosition(stringTokenSentence, tablaSimbolos, rawTokens)
 
                         /** incompatibilidad de tipos */
-                        // obteniendo el tipo de dato del primer identificador IDE en aparecer en la declaracion
-                        val tipoDatoEsperado: TipoDato? = produccionTokens.first { token -> token.defReg == DefinicionRegular.IDE }.tipoDato
+                        var tipoDatoEsperado: TipoDato? = null
+                        when(produccion) {
+                            Producciones.FIN_DO_WHILE -> {
+                                    tipoDatoEsperado = TipoDato.INT
+                                }
+                            else -> {
+                                // obteniendo el tipo de dato del primer identificador IDE en aparecer en la declaracion
+                                tipoDatoEsperado = produccionTokens.first { token -> token.defReg == DefinicionRegular.IDE }.tipoDato
+                            }
+                        }
+
                         if(tipoDatoEsperado != null) {
                             // verificando que todos los tokens en la declaracion sean del mismo tipo de dato
                             produccionTokens.forEach { token ->
