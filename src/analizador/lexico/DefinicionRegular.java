@@ -15,6 +15,7 @@ public enum DefinicionRegular
 	OPCOMP("==|<=?|>=?"),
 	OPAS ("="),							//operador de asignacion (=)
 	COMMA(","),
+    MOD("%"),
 	DEL(";"),                            //delimitador,
 	CORA("\\{"),
 	CORB("\\}"),
@@ -42,6 +43,13 @@ public enum DefinicionRegular
 		this.regex = regex;
 		this.contador = 1;
 	}
-	
-	public String regex() { return this.regex; }	
+
+    public String regex() {
+        return this.regex;
+    }
+
+    @Override
+    public String toString() {
+        return this.regex;
+    }
 }

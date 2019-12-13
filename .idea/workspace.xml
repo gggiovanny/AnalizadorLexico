@@ -6,19 +6,15 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00b211cd-35ee-415e-abeb-2e88d8472af8" name="Default Changelist" comment="CMY a medias, esto es un backup">
-      <change afterPath="$PROJECT_DIR$/src/analizador/lexico/TipoDato.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/analizador/sintactico/TablaSimbolosFIla.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/analizador/sintactico/Validador.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/Response.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/compilador/TriploMaker.java" afterDir="false" />
+    <list default="true" id="00b211cd-35ee-415e-abeb-2e88d8472af8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/analizador/sintactico/Producciones.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/analizador/lexico/Analizador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/lexico/Analizador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/analizador/lexico/DefinicionRegular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/lexico/DefinicionRegular.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/analizador/lexico/TablaTokens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/lexico/TablaTokens.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/analizador/lexico/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/lexico/Token.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/analizador/sintactico/Analizador.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/analizador/sintactico/ChomskyProduction.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vistas/MainWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/analizador/sintactico/TablaSimbolosFIla.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/analizador/sintactico/Validador.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/analizador/sintactico/Validador.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,6 +34,7 @@
         <option value="Kotlin Class" />
         <option value="Kotlin File" />
         <option value="Class" />
+        <option value="Kotlin Enum" />
       </list>
     </option>
   </component>
@@ -49,7 +46,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="glc" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -74,11 +71,14 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.21149425" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="common" />
+      <recent name="analizador.sintactico" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="analizador.sintactico" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -320,15 +320,6 @@
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/compilador/TriploMaker.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="p" language="JAVA" />
